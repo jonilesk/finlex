@@ -1,0 +1,1185 @@
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0" xmlns:finlex="http://data.finlex.fi/schema/finlex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <act contains="originalVersion" name="main">
+        <meta>
+            <identification source="#organization_fi.finlex">
+                <FRBRWork>
+                    <FRBRthis value="/akn/fi/act/statute/2026/1/!main"/>
+                    <FRBRuri value="/akn/fi/act/statute/2026/1"/>
+                    <FRBRalias name="eli" value="http://data.finlex.fi/eli/sd/2026/1/alkup"/>
+                    <FRBRdate date="2026-01-05" name="dateIssued"/>
+                    <FRBRdate date="2026-01-07" name="datePublished"/>
+                    <FRBRauthor as="#role_author" href="#organization_fi.parliament"/>
+                    <FRBRcountry value="fi"/>
+                    <FRBRsubtype value="statute"/>
+                    <FRBRnumber value="1"/>
+                    <FRBRprescriptive value="true"/>
+                    <FRBRauthoritative value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/akn/fi/act/statute/2026/1/fin@/!main"/>
+                    <FRBRuri value="/akn/fi/act/statute/2026/1/fin@"/>
+                    <FRBRalias name="eli" value="http://data.finlex.fi/eli/sd/2026/1/alkup/fin"/>
+                    <FRBRdate date="2026-01-05" name="dateIssued"/>
+                    <FRBRdate date="2026-01-07" name="datePublished"/>
+                    <FRBRauthor as="#role_author" href="#organization_fi.parliament"/>
+                    <FRBRlanguage language="fin"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/akn/fi/act/statute/2026/1/fin@/!main.xml"/>
+                    <FRBRuri value="/akn/fi/act/statute/2026/1/fin@.akn"/>
+                    <FRBRalias name="eli" value="http://data.finlex.fi/eli/sd/2026/1/alkup/fin/xml"/>
+                    <FRBRdate date="2026-01-07" name="dateProduced"/>
+                    <FRBRdate date="2026-01-07" name="datePublished"/>
+                    <FRBRauthor as="#role_editor" href="#organization_fi.finlex"/>
+                    <FRBRformat value="xml"/>
+                </FRBRManifestation>
+            </identification>
+            <references source="#organization_fi.finlex">
+                <TLCOrganization eId="organization_fi.finlex" href="/akn/ontology/organization/fi.finlex" showAs="Finlex"/>
+                <TLCRole eId="role_author" href="/akn/ontology/role/author" showAs="Tekijä"/>
+                <TLCRole eId="role_editor" href="/akn/ontology/role/editor" showAs="Toimittaja"/>
+                <TLCConcept eId="decree" href="/akn/ontology/concept/statute/type-statute.decree" showAs="Asetus"/>
+                <TLCConcept eId="amending-statute" href="/akn/ontology/concept/statute/category-statute.amending-statute" showAs="Muutossäädös"/>
+            </references>
+            <proprietary source="#organization_fi.finlex">
+                <finlex:typeStatute refersTo="#decree"/>
+                <finlex:categoryStatute refersTo="#amending-statute"/>
+                <finlex:documentYear>2026</finlex:documentYear>
+            </proprietary>
+        </meta>
+        <preface>
+            <p>
+                <docNumber>1/2026</docNumber>
+                <docTitle>Sisäministeriön asetus  sisäministeriön työjärjestyksestä annetun sisäasiainministeriön asetuksen muuttamisesta</docTitle>
+            </p>
+        </preface>
+        <preamble>
+            <formula name="enactingClause">
+                <p>Sisäministeriön päätöksen mukaisesti </p>
+                <blockContainer>
+                    <block name="substitutions">
+                        <i>muutetaan</i>
+                         sisäministeriön työjärjestyksestä annetun sisäasiainministeriön asetuksen (<affectedDocument href="/akn/fi/act/statute/2013/1078">1078/2013</affectedDocument>) nimike sekä 1, 3, 4, 4 a, 10, 12–14, 16–18, 20, 22, 35, 41, 42, 46, 48 ja 51 §, 
+                    </block>
+                    <block name="substitutions-originals">sellaisina kuin niistä ovat 1, 16, 41 ja 51 § asetuksessa 1387/2018, 3, 4, 13, 14, 17, 22 ja 46 § asetuksessa 1456/2019, 4 a ja 48 § asetuksessa 757/2019, 10 § asetuksessa 781/2015, 12 ja 18 § asetuksessa 440/2021, 20 § asetuksessa 1562/2015, 42 § asetuksessa 456/2024, sekä</block>
+                </blockContainer>
+                <blockContainer>
+                    <block name="insertions">
+                        <i>lisätään</i>
+                         asetukseen uusi 30 a § sekä siitä asetuksella 1387/2018 kumotun 54 §:n tilalle uusi 54 § seuraavasti:
+                    </block>
+                </blockContainer>
+            </formula>
+        </preamble>
+        <body>
+            <hcontainer finlex:outline="Säädöksen teksti" name="statuteProvisionsWrapper">
+                <level>
+                    <heading>
+                        <docTitle>Sisäministeriön asetus sisäministeriön työjärjestyksestä</docTitle>
+                    </heading>
+                </level>
+                <section eId="sec_1">
+                    <num>1 §</num>
+                    <heading>Soveltamisala</heading>
+                    <subsection eId="sec_1__subsec_1">
+                        <content>
+                            <p>Tässä työjärjestyksessä säädetään ministeriön hallinnonalan ohjauksesta, ministeriön johtamisesta ja johtoryhmistä, ministeriön osastoista ja erillisistä yksiköistä sekä niiden tehtävistä, eräiden virkamiesten tehtävistä ja sijaisista sekä asioiden valmistelusta ja ratkaisemisesta ministeriössä.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_1__subsec_2">
+                        <content>
+                            <p>Tämän työjärjestyksen säännökset koskevat soveltuvin osin ministeriön rajavartio-osastona toimivaa Rajavartiolaitoksen esikuntaa.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_1__subsec_3">
+                        <content>
+                            <p>Tämän työjärjestyksen säännöksiä sovelletaan sisäministeriön pelastusosaston yhteydessä toimivan palosuojelurahaston henkilöstön virkasuhteeseen liittyviin asioihin siltä osin kuin niitä ei ole säädetty palosuojelurahaston hallituksen ratkaistavaksi.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_1__subsec_4">
+                        <content>
+                            <p>Ministeriön suunnittelujärjestelmästä, maksuliikkeestä, kirjanpidosta, menojen hyväksymisestä sekä materiaalitoiminnoista ja sisäisestä valvonnasta määrätään sisäministeriön kirjanpitoyksikön taloussäännössä.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_1__subsec_5">
+                        <content>
+                            <p>Sisäministeriön yhteydessä toimii Kriisinhallintakeskus, jonka asemasta, tehtävistä, organisaatiosta ja työjärjestyksestä säädetään laissa siviilihenkilöiden osallistumisesta kriisinhallintaan (1287/2004). Työjärjestyksen hallinnonalan virastopäällikköä koskevat säännökset koskevat soveltuvin osin Kriisinhallintakeskuksen johtajaa. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_3">
+                    <num>3 §</num>
+                    <heading>Ministerin johtoryhmä</heading>
+                    <subsection eId="sec_3__subsec_1">
+                        <content>
+                            <p>Ministerin johtoryhmä käsittelee ministeriön toimialaan kuuluvat keskeiset sekä usean osaston toimialaan kuuluvat asiat. Johtoryhmä arvioi myös toiminnan tuloksellisuutta, ohjaa lainvalmistelua sekä käsittelee ja sovittaa yhteen muut laajakantoiset ja periaatteellisesti tärkeät asiat. Johtoryhmä käsittelee myös hallinnonalan ja ministeriön toimintaan keskeisesti vaikuttavat yhteiskuntapoliittiset linjaukset sekä toimintaa suuntaavat tulossuunnitelmat ja niiden toteuttamisen edellyttämät voimavarat.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_3__subsec_2">
+                        <content>
+                            <p>Johtoryhmään kuuluvat sisäministeri puheenjohtajana, valtiosihteeri varapuheenjohtajana sekä jäseninä kansliapäällikkö, hallinto- ja kehittämisosaston, poliisiosaston, pelastusosaston ja maahanmuutto-osaston osastopäälliköt, Rajavartiolaitoksen päällikkö, viestintäjohtaja ja ministeriön kansainvälisten asioiden yksikön päällikkö. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_4">
+                    <num>4 §</num>
+                    <heading>Kansliapäällikön johtoryhmä </heading>
+                    <subsection eId="sec_4__subsec_1">
+                        <content>
+                            <p>Kansliapäällikön johtoryhmä sovittaa valmistelevasti yhteen ja linjaa ministerin johtoryhmän asioita, toiminnan ja talouden suunnittelua, hallinnonalan ja ministeriön yhteisiä hallinnollisia ja toiminnallisia asioita sekä varmistaa osastojen välisen tiedonkulun ja johtoryhmässä tehtyjen päätösten toimeenpanon. Kokouksessa käsitellään lisäksi säännöllisesti säädöshankkeita ja muita merkittäviä hankkeita sekä eduskunnalle annettavaksi ilmoitettujen hallituksen esitysten valmistelutilannetta.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_4__subsec_2">
+                        <content>
+                            <p>Kansliapäällikön johtoryhmään kuuluvat kansliapäällikkö, osastopäälliköt sekä ministeriön kansainvälisten asioiden yksikön päällikkö ja viestintäjohtaja. Valtiosihteerillä sekä henkilöstön edustajalla on oikeus osallistua kokoukseen. Kokouksen sihteerinä toimii puheenjohtajan määräämä henkilö. Johtoryhmän kokoukseen voivat tarvittaessa osallistua myös muut puheenjohtajan määräämät henkilöt.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_4__subsec_3">
+                        <content>
+                            <p>Kansliapäällikön johtoryhmä toimii ministeriön valmiustoimikuntana. Sen lisäksi, mitä 2 momentissa säädetään, valmiustoimikunnan kokouksiin osallistuvat valmiuspäällikkö ja valmiuskoordinaattori.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_4a">
+                    <num>4 a §</num>
+                    <heading>Operatiivinen yhteistyöryhmä</heading>
+                    <subsection eId="sec_4a__subsec_1">
+                        <content>
+                            <p>Operatiivinen yhteistyöryhmä sovittaa yhteen sisäisen turvallisuuden operatiivista tilannekuvaa ja hallinnonalan varautumista.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_4a__subsec_2">
+                        <content>
+                            <p>Yhteistyöryhmän puheenjohtajana toimii ministeri ja varapuheenjohtajana kansliapäällikkö. Yhteistyöryhmän jäseniä ovat valtiosihteeri sekä sisäministeriön hallinto- ja kehittämisosaston, rajavartio-osaston, pelastusosaston, poliisiosaston ja maahanmuutto-osaston osastopäälliköt, Rajavartiolaitoksen päällikkö, viestintäjohtaja ja ministeriön kansainvälisten asioiden yksikön päällikkö. Lisäksi yhteistyöryhmän jäseniä ovat Poliisihallituksen poliisiylijohtaja, suojelupoliisin päällikkö, keskusrikospoliisin päällikkö sekä Maahanmuuttoviraston ylijohtaja. </p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_4a__subsec_3">
+                        <content>
+                            <p>Yhteistyöryhmän sihteerinä toimii valmiuspäällikkö. Ministerin erityisavustajilla on oikeus olla läsnä yhteistyöryhmän kokouksissa. Yhteistyöryhmän kokouksiin voivat tarvittaessa osallistua myös muut puheenjohtajan määräämät henkilöt.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_10">
+                    <num>10 §</num>
+                    <heading>Säädösvalmistelun kehittämistyöryhmä </heading>
+                    <subsection eId="sec_10__subsec_1">
+                        <intro eId="sec_10__subsec_1__intro">
+                            <p>Ministeriössä toimii säädösvalmistelun kehittämistyöryhmä, joka:</p>
+                        </intro>
+                        <paragraph eId="sec_10__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>tekee esityksiä ja aloitteita säädösvalmistelun laadun parantamiseksi;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_10__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>toimii hyvää lainvalmistelukäytäntöä edistävänä keskustelu-, ideointi- ja kehittämisfoorumina;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_10__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>välittää säädösvalmistelua ja perustuslakia koskevaa tietoa ministeriössä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_10__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>seuraa valtioneuvoston yhteistä säädösvalmistelun kehittämistä ja tukee sen toimeenpanoa sisäministeriössä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_10__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>tekee esityksiä säädösvalmistelun osaamisen kehittämiseksi. </p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_10__subsec_2">
+                        <content>
+                            <p>Kehittämistyöryhmän yhteydessä toimii ministeriön säädösvalmisteluavustajien verkosto.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_10__subsec_3">
+                        <content>
+                            <p>Säädösvalmistelun kehittämistyöryhmän nimeää kansliapäällikkö.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_10__subsec_4">
+                        <content>
+                            <p>Hallinto- ja kehittämisosasto valmistelee säädösvalmistelun kehittämistyöryhmässä käsiteltävät asiat.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_12">
+                    <num>12 §</num>
+                    <heading>Ministeriön osastot ja erilliset yksiköt </heading>
+                    <subsection eId="sec_12__subsec_1">
+                        <content>
+                            <p>Ministeriössä on poliisiosasto, pelastusosasto, maahanmuutto-osasto, rajavartio-osasto ja hallinto- ja kehittämisosasto.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_12__subsec_2">
+                        <content>
+                            <p>Ministeriössä on lisäksi kansliapäällikön välittömässä alaisuudessa osastojaon ulkopuolella ministeriön viestintäyksikkö ja ministeriön kansainvälisten asioiden yksikkö. Kansliapäällikön alaisuudessa yksikköjaon ulkopuolella toimii suojelupoliisin ja siviilitiedustelun ohjaus, sisäinen tarkastus sekä kansliapäällikön esikuntapalvelut.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_12__subsec_3">
+                        <content>
+                            <p>Ministeriössä on lisäksi pelastusylijohtajan välittömässä alaisuudessa pelastusosaston erillisenä yksikkönä toimiva palosuojelurahasto.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_13">
+                    <num>13 §</num>
+                    <heading>Poliisiosaston tehtävät </heading>
+                    <subsection eId="sec_13__subsec_1">
+                        <intro eId="sec_13__subsec_1__intro">
+                            <p>Poliisiosasto käsittelee asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_13__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>Poliisihallituksen tulosohjausta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>Poliisihallituksen alaista poliisihallintoa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>yleistä järjestystä ja turvallisuutta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>Poliisihallituksen alaista poliisin rikostorjuntaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>poliisin lupahallintoa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>ampuma-aseita;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>poliisin arpajaishallintoa ja rahapelipolitiikkaa sekä</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_13__subsec_1__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>yksityistä turvallisuusalaa.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_13__subsec_2">
+                        <content>
+                            <p>Poliisiosasto käsittelee asiat, jotka koskevat Poliisihallituksen alaisen poliisin tulosohjausta, laillisuusvalvontaa, kansainvälisiä asioita samoin kuin sisäministeriölle Poliisihallituksen alaisen poliisin toimialalla kuuluvia muita asioita.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_13__subsec_3">
+                        <content>
+                            <p>Poliisiosasto valmistelee puolustusvoimien virka-avusta poliisille annetun lain (342/2022) 10 §:n 1–3 momentissa ja rajavartiolain (578/2005) 77 c §:n 1–3 momentissa tarkoitetun vaativaa virka-apua koskevan pyynnön.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_13__subsec_4">
+                        <content>
+                            <p>Poliisiosasto valmistelee poliisilain (872/2011) 9 luvun 2 a–c, 9 a ja 9 b §:ssä sekä 9 i §:n 3 ja 4 momentissa tarkoitetut kansainväliseen ja viranomaisyhteistyöhön liittyvät Poliisihallituksen alaista poliisia koskevat päätökset. Lisäksi poliisiosasto valmistelee kansainvälistä apua, yhteistoimintaa tai muuta kansainvälistä toimintaa koskevasta päätöksenteosta annetun lain (418/2017) 2 ja 4 §:ssä tarkoitetut Poliisihallituksen alaista poliisia koskevat sisäministeriön päätökset. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_14">
+                    <num>14 §</num>
+                    <heading>Pelastusosaston tehtävät</heading>
+                    <subsection eId="sec_14__subsec_1">
+                        <intro eId="sec_14__subsec_1__intro">
+                            <p>Pelastusosasto käsittelee asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_14__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>pelastustoimea;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>väestönsuojelua; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>siviilivalmiutta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>aluehallinnon yhteistä varautumista poikkeusoloihin ja häiriötilanteisiin sekä siihen liittyviä keskushallinnon tehtäviä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>yhteiskunnan kriittisen infrastruktuurin suojaamisesta ja häiriönsietokyvyn parantamisesta annetun lain (310/2025) mukaista yhteensovittamistehtävää;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>hätäkeskustoimintaa, Hätäkeskuslaitosta ja sen tulosohjausta ja laillisuusvalvontaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>Pelastusopistoa ja sen tulosohjausta ja laillisuusvalvontaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>pelastusalan ammattikorkeakoulutukseen tarkoitettujen määrärahojen käyttöä kuultuaan asiasta Pelastusopistoa, Poliisihallitusta ja Poliisiammattikorkeakoulua;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_9">
+                            <num>9) </num>
+                            <content>
+                                <p>Pelastusopistoa, pelastusalan ammattikorkeakoulututkinnon opiskelijoita ja pelastuslaitoksia edustavien Poliisiammattikorkeakoulun</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_10">
+                            <content>
+                                <p>hallituksen jäsenten nimeämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_11">
+                            <num>10) </num>
+                            <content>
+                                <p>pelastusalan ammattikorkeakoulututkintoon johtavista opiskelijamääristä päättämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_12">
+                            <num>11) </num>
+                            <content>
+                                <p>palosuojelurahastoa ja sen tulosohjausta lukuun ottamatta toiminnan ja talouden valvontaa; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_13">
+                            <num>12) </num>
+                            <content>
+                                <p>pelastuslain (379/2011) 38 §:ssä tarkoitettua pelastustoimeen kuuluvan kansainvälisen avun antamista ja vastaanottamista sekä tuen antamista toiselle viranomaiselle lukuun ottamatta niitä tehtäviä, jotka pelastuslain mukaisesti kuuluvat Rajavartiolaitokselle;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_14">
+                            <num>13) </num>
+                            <content>
+                                <p>eräistä paloturvallisuuslaitteista annetun lain (191/2024) säännösten noudattamista koskevan valvonnan ohjausta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_15">
+                            <num>14) </num>
+                            <content>
+                                <p>hengenpelastusmitaleja;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_14__subsec_1__para_16">
+                            <num>15) </num>
+                            <content>
+                                <p>Suomen Punaista Ristiä.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_14__subsec_2">
+                        <content>
+                            <p>Hätäkeskuslaitoksen tulosohjausta, talousarviota, yhteistyöryhmän asettamista, sekä muita Hätäkeskuslaitoksen toiminnan kannalta tärkeitä asioita osaston tulee käsitellä yhteistyössä poliisiosaston kanssa.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_14__subsec_3">
+                        <content>
+                            <p>Pelastustoiminnan johtamisesta onnettomuustilanteissa säädetään erikseen. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_16">
+                    <num>16 §</num>
+                    <heading>Rajavartio-osaston tehtävät </heading>
+                    <subsection eId="sec_16__subsec_1">
+                        <intro eId="sec_16__subsec_1__intro">
+                            <p>Rajavartio-osasto käsittelee asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_16__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>rajojen valvontaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>rajatarkastuksia;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>meripelastusta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>Rajavartiolaitoksen rikostorjuntaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>Rajavartiolaitoksen sotilaallista maanpuolustusta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>ympäristövahinkojen torjuntaa avomerellä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>aluksen suojapaikkaan ohjaamista; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_16__subsec_1__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>edellä tarkoitettuihin asioihin liittyvää kansainvälistä yhteistyötä ja muuta yhteistoimintaa.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_16__subsec_2">
+                        <content>
+                            <p>Rajavartio-osasto käsittelee myös asiat, jotka koskevat Rajavartiolaitoksen organisaatiota, aluejakoa, taloushallintoa, tulosohjausta, laillisuusvalvontaa ja hankintoja sekä henkilöstöhallintoa samoin kuin sisäministeriölle Rajavartiolaitoksen toimialalla kuuluvia muita asioita.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_16__subsec_3">
+                        <content>
+                            <p>Rajavartio-osasto valmistelee sisäasiainhallinnon viranomaisten vuosittaisen osallistumisen eurooppalaisen raja- ja merivartioston pysyvän joukon toimintaan sekä Rajavartiolaitoksen vaativan virka-avun antamista poliisille koskevat päätökset. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_17">
+                    <num>17 §</num>
+                    <heading>Suojelupoliisin ja siviilitiedustelun ohjaus </heading>
+                    <subsection eId="sec_17__subsec_1">
+                        <content>
+                            <p>Kansliapäällikön alaisuudessa yksikköjaon ulkopuolella toimivassa suojelupoliisin ja siviilitiedustelun ohjauksessa käsitellään asiat, jotka koskevat siviilitiedustelua, suojelupoliisia, suojelupoliisin tulosohjausta ja laillisuusvalvontaa. Ohjaustoiminteessa valmistellaan myös poliisilain 9 luvun 2 a–c, 9 a ja 9 b §:ssä sekä 9 i §:n 3 momentissa tarkoitetut kansainväliseen ja viranomaisyhteistyöhön liittyvät suojelupoliisia koskevat sisäministeriön päätökset sekä kansainvälistä apua, yhteistoimintaa tai muuta kansainvälistä toimintaa koskevasta päätöksenteosta annetun lain 2 ja 4 §:ssä tarkoitetut suojelupoliisia koskevat sisäministeriön päätökset. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_18">
+                    <num>18 §</num>
+                    <heading>Hallinto- ja kehittämisosaston tehtävät </heading>
+                    <subsection eId="sec_18__subsec_1">
+                        <intro eId="sec_18__subsec_1__intro">
+                            <p>Hallinto- ja kehittämisosasto käsittelee asiat, jotka koskevat: </p>
+                        </intro>
+                        <paragraph eId="sec_18__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>yleistä toiminnan kehittämistä sekä yleisten hallintoasioiden hoitoa ja sisäisiä palveluita, hallinnonalan tiedonhallinnan yleistä ohjausta ja ministeriön tiedonhallintaa; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>tulossuunnittelua, tulosohjausta, tuloksellisuuden seurantaa ja niihin liittyvää kehittämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>henkilöstöhallintoa ja -politiikkaa sekä henkilöstön kehittämistä; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>taajuus-, viestintäverkko- ja avaruusasioiden, tietohallinnon, tietosuojan ja digitalisaation yleistä kehittämistä ja ohjausta, konsernistrategiaa tukevien hankkeiden ohjaamista, hallinnonalan tietojärjestelmien yhteentoimivuuden edistämistä ja varmistamista sekä tietohallintoyhteistyön ja verkostomaisen toimintatavan edistämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>hallinnonalan ja ministeriön taloussuunnittelua, talousarvion soveltamista sekä talousarviolainsäädännön mukaisia kertomuksia, ministeriön kirjanpitoyksikkötehtäviä, taloushallintoa ja sisäisen valvonnan periaatteita sekä palosuojelurahaston toiminnan ja talouden valvontaa; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>ministeriön ja sen hallinnonalan turvallisuusasioiden sekä riskienhallinnan yleistä ohjausta, valvontaa ja kehittämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>tutkimustoiminnan kehittämistä ja koordinointia sekä talousarvion ulkopuolisen kehittämisrahoituksen hankinnan tukemista ja koordinaatiota hallinnonalalla;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>hankintatointa ja toimitila-asioita koskevien asioiden ohjausta ja kehittämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_9">
+                            <num>9) </num>
+                            <content>
+                                <p>aluejakojen ja alueellistamisen yhteensovittamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_10">
+                            <num>10) </num>
+                            <content>
+                                <p>sisäisen turvallisuuden kohdealueen arkkitehtuuria;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_11">
+                            <num>11) </num>
+                            <content>
+                                <p>useamman kuin yhden osaston tai erillisen yksikön toimialaan kuuluvien lausuntojen valmistelua ja yhteensovittamista lukuun ottamatta 22 §:n 2 momentin 9 kohdassa tarkoitettuja asioita;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_12">
+                            <num>12) </num>
+                            <content>
+                                <p>hallinnonalan virastopäälliköiden palkkausta sekä johtajasopimusten ja karenssisopimusten yhteensovittamista ja laatimisessa avustamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_13">
+                            <num>13) </num>
+                            <content>
+                                <p>Suomen lippua ja Suomen vaakunaa, lukuun ottamatta poliisin oikeutta käyttää suorakaiteista valtiolippua;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_14">
+                            <num>14) </num>
+                            <content>
+                                <p>toimitiloihin ja virastopalveluihin, tietopalveluun ja tiedonhallintaan, käännös- ja tulkkauspalveluihin liittyvää yhteistyötä valtioneuvoston kanslian kanssa; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_15">
+                            <num>15) </num>
+                            <content>
+                                <p>ministeriön johdon avustamista säädöshankkeiden seurannassa ja säädösvalmistelun laadun kehittämisessä; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_16">
+                            <num>16) </num>
+                            <content>
+                                <p>ministeriön johdon, osastojen ja erillisten yksiköiden avustamista yleisissä oikeudellisissa asioissa, jos asia ei kuulu muun osaston tai erillisen yksikön toimialaan; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_17">
+                            <num>17) </num>
+                            <content>
+                                <p>ministeriötä tai ministeriön virkamiehiä koskevien kanteluiden käsittelyä, ellei asia kuulu muulle osastolle tai erilliselle yksikölle; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_18">
+                            <num>18) </num>
+                            <content>
+                                <p>ministeriön ja hallinnonalan laillisuusvalvonnan yleistä kehittämistä, laillisuusvalvontatarkastusten järjestämistä ja kehittämistä sekä tarvittaessa osastojen ja erillisten yksiköiden tukemista muissa laillisuusvalvontaan liittyvissä tehtävissä; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_19">
+                            <num>19) </num>
+                            <content>
+                                <p>ministeriön ja sen hallinnonalan yhteisen varautumisen ja valmiussuunnittelun</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_20">
+                            <content>
+                                <p>yleistä ohjausta ja yhteensovittamista sekä valvontaa ja kehittämistä; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_18__subsec_1__para_21">
+                            <num>20) </num>
+                            <content>
+                                <p>niitä ministeriön asioita, jotka eivät kuulu muille osastoille tai erillisille yksiköille.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_18__subsec_2">
+                        <content>
+                            <p>Hallinto- ja kehittämisosasto osallistuu ministerin tai kansliapäällikön ratkaistavien konsernistrategiaa tukevien hankkeiden, hankinta-asioiden ja ministeriön sitoutumista edellyttävien toimitila-asioiden valmisteluun yhteistyössä asianomaisen osaston tai erillisen yksikön kanssa. </p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_18__subsec_3">
+                        <content>
+                            <p>Hallinto- ja kehittämisosasto vastaa toimeksiantona saatujen ministeriön hankintojen osalta julkisia hankintoja koskevien menettelyjen noudattamisesta sekä kilpailuttamisesta siten kuin ministeriön sisäisessä määräyksessä tarkemmin määrätään. Osasto huolehtii lisäksi ministeriön hankintoja koskevasta sopimustenhallinnasta.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_20">
+                    <num>20 §</num>
+                    <heading>Sisäisen tarkastuksen tehtävät </heading>
+                    <subsection eId="sec_20__subsec_1">
+                        <intro eId="sec_20__subsec_1__intro">
+                            <p>Kansliapäällikön alaisuudessa toimiva sisäinen tarkastus käsittelee asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_20__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>ministeriön ja sen hallinnonalan sisäisen valvonnan ja riskienhallinnan asianmukaisuuden ja riittävyyden seurantaa ja arviointia sekä sisäisen valvonnan arviointi- ja vahvistuslausuman valmistelua;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_20__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>ministeriön ja sen ohjaus- ja valvontavastuun toteuttamiseksi myös hallinnonalan virastojen toimintojen ja taloudenhoidon laillisuuden, tuloksellisuuden ja tarkoituksenmukaisuuden seurantaa ja tarkastamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_20__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>Euroopan unionin sisäasioiden rahastojen ohjelmakauden 2014–2020 tarkastusviranomaistehtäviä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_20__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>ministeriön ja hallinnonalan virastojen tarkastustoiminnan, sisäisen valvonnan ja riskienhallinnan yhteensovittamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_20__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>sisäiseen valvontaan ja riskienhallintaan liittyvää neuvontaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_20__subsec_1__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>Euroopan unionin ja kansallisen oikeuden rikkomisesta ilmoittavien henkilöiden suojelusta annetun lain (1171/2022) mukaisten ilmoitusten käsittelyprosessin koordinointia sisäministeriössä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_20__subsec_1__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>muita kansliapäällikön erikseen antamia tehtäviä.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_20__subsec_2">
+                        <content>
+                            <p>Sisäisestä tarkastuksesta määrätään tarkemmin sisäministeriön sisäisen tarkastuksen ohjesäännössä. </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_22">
+                    <num>22 §</num>
+                    <heading>Ministeriön kansainvälisten asioiden yksikön tehtävät </heading>
+                    <subsection eId="sec_22__subsec_1">
+                        <content>
+                            <p>Ministeriön kansainvälisten asioiden yksikkö yhteensovittaa ministeriölle kuuluvia kansainvälisiä ja Euroopan unionissa käsiteltäviä asioita sekä avustaa ministeriä, valtiosihteeriä ja kansliapäällikköä kansainvälisten ja Euroopan unioniin liittyvien asioiden hoitamisessa.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_22__subsec_2">
+                        <intro eId="sec_22__subsec_2__intro">
+                            <p>Ministeriön kansainvälisten asioiden yksikkö käsittelee asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_22__subsec_2__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>siviilikriisinhallinnan kotimaan valmiuksia sekä niiden kehittämistä ja ylläpitämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>Kriisinhallintakeskuksen tulosohjausta ja laillisuusvalvontaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>Euroopan unionin sisäasioiden rahastojen hallinto- ja vastuuviranomaistehtäviä sekä sisäasioiden EU-rahoituksen valmistelua;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>ministerin, valtiosihteerin ja kansliapäällikön kansainvälisten vierailujen ja tapaamisten valmistelua;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>ministeriön kansainvälisen toiminnan tehostamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>Euroopan ihmisoikeustuomioistuimessa ja muissa kansainvälisissä tuomioistuimissa vireillä olevien ministeriötä koskevien asioiden yhteensovittamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>ministeriötä koskevien kansainvälisten valvontaelinten antamien suositusten toimeenpanon seurantaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_22__subsec_2__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>kansainvälisten ihmisoikeussopimusten määräaikaisraportoinnin valmistelua ja yhteensovittamista ministeriössä.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                </section>
+                <section eId="sec_30a">
+                    <num>30 a §</num>
+                    <heading>Yhteensovittaminen </heading>
+                    <subsection eId="sec_30a__subsec_1">
+                        <content>
+                            <p>Asiat on valmisteltava tiiviissä yhteistyössä kaikkien niiden osastojen, erillisten yksiköiden ja toiminteiden kesken, joiden tehtäviä ne koskevat. Asiat, jotka koskevat useamman osaston, erillisen yksikön tai toiminteen tehtäviä, valmistelee ja yhteensovittaa se osasto, erillinen yksikkö tai toiminne, jolle asian vaikutukset ovat merkittävimmät. Poliisiosasto valmistelee sisäministeriön hallinnonalalla kansallisen turvallisuuden kannalta yhteensovittamista vaativat asiat johtoryhmäkäsittelyitä varten. </p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_30a__subsec_2">
+                        <content>
+                            <p>Kansliapäällikkö nimeää asiantuntijaryhmän toimialarajat ylittävien tai poikkihallinnollista yhteistyötä edellyttävien asiakokonaisuuksien valmistelua varten kansliapäällikön johtoryhmän valmistelun perusteella.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_35">
+                    <num>35 §</num>
+                    <heading>Kirjallinen kysymys </heading>
+                    <subsection eId="sec_35__subsec_1">
+                        <content>
+                            <p>Vastausehdotus kirjalliseen kysymykseen on esitettävä ministerille viimeistään 7 päivää ennen määräajan päättymistä.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_35__subsec_2">
+                        <content>
+                            <p>Vastausehdotus on ennen ehdotuksen antamista ministerille toimitettava kansliapäällikön ja asianomaisen osaston tai erillisen yksikön päällikön nähtäväksi.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_41">
+                    <num>41 §</num>
+                    <heading>Kansliapäällikön ratkaisuvalta </heading>
+                    <subsection eId="sec_41__subsec_1">
+                        <intro eId="sec_41__subsec_1__intro">
+                            <p>Kansliapäällikkö ratkaisee asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_41__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>ministeriön muiden kuin kansliapäällikön tai osaston päällikön viran perustamista, lakkauttamista ja nimen muuttamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>muiden kuin valtion talousarviossa eriteltävien virkojen siirtämistä sisäministeriön hallinnonalaan kuuluvien virastojen kesken; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>ministeriön yhteisten virkojen ja työsopimussuhteisen henkilön sijoittamista sekä muiden kuin osastopäällikön virkojen siirtämistä ministeriössä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>viran haettavaksi julistamista, kun kysymyksessä on osaston tai erillisen yksikön päällikön tai osastoon sijoittamattoman viran täyttämisestä; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>vaativuustasoon 9 kuuluvien ministeriön virkojen täyttämistä, ellei kysymyksessä ole virka, johon valtioneuvosto nimittää sekä vastaavan työsuhteisen henkilöstön ottamista; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>palkkausta, kun kysymyksessä on tulosyksikön päällikön virka tai osastoon sijoittamaton virka, sekä valtion virkamieslain (750/1994) 44 §:ssä tarkoitetun kirjallisen sopimuksen tekemistä muun kuin valtion virkamieslain 26 §:ssä tarkoitetun virkamiehen kanssa; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>muiden kuin valtioneuvoston nimittämien ministeriön virkamiesten irtisanomista valtion virkamieslain 25 tai 27 §:n nojalla; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>valtion virkamieslain 24 §:ssä tarkoitetun kirjallisen varoituksen antamista valtioneuvoston, ministerin tai kansliapäällikön nimittämälle virkamiehelle lukuun ottamatta hallinnonalan virastopäällikköä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_9">
+                            <num>9) </num>
+                            <content>
+                                <p>ulkomaan virkamatkaa koskevan matkamääräyksen antamista osaston ja erillisen yksikön päällikölle sekä muuhun kuin lakiin tai virkaehtosopimukseen perustuvan virkavapauden myöntämistä enintään kahdeksi vuodeksi näille virkamiehille; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_10">
+                            <num>10) </num>
+                            <content>
+                                <p>osaston ja erillisen yksikön päällikön sivutoimilupaa ja -ilmoitusta; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_11">
+                            <num>11) </num>
+                            <content>
+                                <p>nimittämistä sellaisen hallinnonalan virastopäällikön enintään vuoden kestävään määräaikaiseen virkasuhteeseen, jonka ministeriö nimittää; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_12">
+                            <num>12) </num>
+                            <content>
+                                <p>lausunnon antamista asioissa, jotka kuuluvat useamman kuin yhden osaston toimialaan; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_13">
+                            <num>13) </num>
+                            <content>
+                                <p>ministeriön tärkeimpiä hankintoja ja hallinnonalan keskitettyjä hankintoja, hankintamenettelyä ministeriön sitoutumista edellyttävissä useamman kuin yhden osaston toimialaan kuuluvien virastojen ja ministeriön omien toimitilojen vuokrauksissa sekä turvallisuushankintoja;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_14">
+                            <num>14) </num>
+                            <content>
+                                <p>ministeriön ja hallinnonalan yhteisiä tietohallinto- ja digitalisaatiotehtäviä, jos asia on periaatteellisesti tärkeä tai laajakantoinen; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_15">
+                            <num>15) </num>
+                            <content>
+                                <p>ministeriön toimintaan osoitettujen määrärahojen jakamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_16">
+                            <num>16) </num>
+                            <content>
+                                <p>ministeriön sisäistä hallintoa, jos asia on periaatteellisesti tärkeä tai laajakantoinen;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_17">
+                            <num>17) </num>
+                            <content>
+                                <p>neuvotteluvaltuuskunnan asettamista ministeriön toimialan kansainvälisiä sopimusneuvotteluja varten sekä kansainvälisten viranomaissopimusten ja sopimuksentekovallan delegoinnin nojalla tehtävien valtiosopimusten tekemistä silloin, kun sopimus koskee useampaa kuin yhtä osastoa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_18">
+                            <num>18) </num>
+                            <content>
+                                <p>matkamääräyksen antamista julkisen sektorin ulkopuolisten tahojen rahoittamiin virkamatkoihin;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_19">
+                            <num>19) </num>
+                            <content>
+                                <p>lahjoitetun omaisuuden vastaanottamista. </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_41__subsec_1__para_20">
+                            <content>
+                                <p>Toimitilojen hankintamenettelyehdotuksen esittelee kansliapäällikölle kyseisen toimialan tulosohjauksesta vastaavan osaston tai erillisen yksikön päällikkö.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                </section>
+                <section eId="sec_42">
+                    <num>42 § </num>
+                    <heading>Osaston ja erillisen yksikön päällikön ratkaisuvalta </heading>
+                    <subsection eId="sec_42__subsec_1">
+                        <content>
+                            <p>Osaston päällikkö ratkaisee osaston tehtäviin kuuluvan muun kuin yhteiskunnallisesti tai taloudellisesti merkittävän asian, jos asiaa ei ole tässä työjärjestyksessä määrätty tai muualla säädetty muun virkamiehen ratkaistavaksi.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_42__subsec_2">
+                        <intro eId="sec_42__subsec_2__intro">
+                            <p>Osaston päällikkö ratkaisee lisäksi, jollei jäljempänä toisin säädetä, asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_42__subsec_2__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>viran haettavaksi julistamista, kun kysymys on osastoon sijoitetun viran täyttämisestä sekä tällaisen viran kohdentamisesta osastolla;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>enintään vaativuustasoon 8 kuuluvan viran täyttämistä tai määräaikaiseen virkasuhteeseen nimittämistä sekä vastaavan työsopimussuhteisen henkilöstön ottamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>nimittämistä määräaikaiseen virkasuhteeseen enintään vuodeksi, kun vastaavaan virkaan nimittää kansliapäällikkö, ministeri tai valtioneuvosto;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_4">
+                            <num>4) </num>
+                            <content>
+                                <p>muuhun kuin lakiin tai virkaehtosopimukseen perustuvan virkavapauden myöntämistä osaston virkamiehelle, kuitenkin enintään kahdeksi vuodeksi valtioneuvoston nimittämälle virkamiehelle;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_5">
+                            <num>5) </num>
+                            <content>
+                                <p>osaston virkamiesten sijaisten määräämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_6">
+                            <num>6) </num>
+                            <content>
+                                <p>osaston muun henkilöstön kuin tulosyksiköiden päälliköiden palkkausta;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_7">
+                            <num>7) </num>
+                            <content>
+                                <p>valtion virkamieslain 24 §:ssä tarkoitetun kirjallisen varoituksen antamista muulle kuin tämän asetuksen 41 §:n 1 momentin 8 kohdassa tarkoitetulle osaston virkamiehelle;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_8">
+                            <num>8) </num>
+                            <content>
+                                <p>kirjallisen huomautuksen antamista osaston virkamiehelle;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_9">
+                            <num>9) </num>
+                            <content>
+                                <p>ulkomaan virkamatkaa koskevan matkamääräyksen antamista osaston virkamiehelle;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_10">
+                            <num>10) </num>
+                            <content>
+                                <p>tulosohjausta sekä osastolle ja sen toimialoille osoitettujen määrärahojen jakamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_11">
+                            <num>11) </num>
+                            <content>
+                                <p>menoihin sitoutumista osaston käyttöön annetut määrärahat huomioon ottaen;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_12">
+                            <num>12) </num>
+                            <content>
+                                <p>osaston ja sen toimialan hankintoja keskitetyt sopimukset huomioon ottaen;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_13">
+                            <num>13) </num>
+                            <content>
+                                <p>valtionhallinnon yhteishankinnan piirissä olevan hankinnan toteuttamista muulla tavalla ministeriön hallinto- ja kehittämisosaston annettua asiasta lausuntonsa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_14">
+                            <num>14) </num>
+                            <content>
+                                <p>hankintamenettelyä ministeriön sitoutumista edellyttävissä osaston toimialan toimitilavuokrauksissa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_15">
+                            <num>15) </num>
+                            <content>
+                                <p>osaston toimialaa koskevaa tiedottamista ja julkaisun julkaisemista ministeriön julkaisusarjassa; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_16">
+                            <num>16) </num>
+                            <content>
+                                <p>neuvotteluvaltuuskunnan asettamista osaston toimialan kansainvälisiä sopimusneuvotteluja varten sekä osaston toimialan kansainvälisten viranomaissopimusten ja sopimuksentekovallan delegoinnin nojalla tehtävien valtiosopimusten tekemistä ja osaston muuta kansainvälistä yhteistyötä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_17">
+                            <num>17) </num>
+                            <content>
+                                <p>viranomaisten toiminnan julkisuudesta annetun lain (621/1999) 14 §:ssä tarkoitettua viranomaisen ratkaisua ja 28 §:ssä tarkoitettua lupaa.</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_18">
+                            <content>
+                                <p>Osastopäällikkö ratkaisee 2 momentin 9 kohdassa tarkoitetun asian ilman esittelyä.</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_42__subsec_2__para_19">
+                            <content>
+                                <p>Osastopäällikkö ratkaisee myös asian, jonka osaston muu virkamies saisi tämän työjärjestyksen mukaan ratkaista, jos se osaston toiminnan kannalta tai muutoin on merkittävä.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_42__subsec_3">
+                        <content>
+                            <p>Osastopäällikkö ratkaisee hallinnonalan virastopäällikköä koskevat sisäministeriön ratkaistavaksi säädetyt henkilöstöasiat lukuun ottamatta virkaan ja määräaikaiseen virkaan nimittämistä, irtisanomista ja virantoimituksesta pidättämistä sekä asioita, jotka on säädetty muun virkamiehen ratkaistaviksi. Osastopäällikkö ratkaisee myös sisäministeriölle kuuluvan hallinnonalan virastopäällikköä koskevan virkasuhteesta johtuvaa taloudellista etuutta ja kustannusten korvausta koskevan asian. Osastopäällikkö tai hänen määräämänsä osaston virkamies ratkaisee ilman esittelyä hallinnonalan virastopäällikön kotimaan ja ulkomaan matkoihin liittyvät matkamääräykset.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_42__subsec_4">
+                        <content>
+                            <p>Mitä 1–4 momentissa säädetään osaston päälliköstä, koskee erillisen yksikön päällikköä sekä kansliapäällikköä suojelupoliisin ja siviilitiedustelun ohjauksen, sisäisen tarkastuksen sekä kansliapäällikön esikuntapalvelujen päällikkönä.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_46">
+                    <num>46 § </num>
+                    <heading>Ministeriön kansainvälisten asioiden yksikön päällikkö </heading>
+                    <subsection eId="sec_46__subsec_1">
+                        <content>
+                            <p>Ministeriön kansainvälisten asioiden yksikön päällikkö ratkaisee nimittämisen julkisoikeudelliseen palvelussuhteeseen sekä muut palvelussuhdetta koskevat asiat siviilikriisihallinnan kotimaan valmiuksien kannalta merkittävissä tehtävissä. </p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_46__subsec_2">
+                        <content>
+                            <p>Kansainvälisten asioiden yksikön päälliköllä on sisäasioiden EU-rahastojen hallinto- ja vastuuviranomaisen päällikkönä ratkaisuvalta rahastoja koskevissa asioissa. </p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_46__subsec_3">
+                        <content>
+                            <p>Kansainvälisten asioiden yksikön päällikkö ratkaisee ulkomaanmatkaa koskevan matkamääräyksen antamisen ministerille.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_48">
+                    <num>48 §</num>
+                    <heading>Pelastusylijohtaja</heading>
+                    <subsection eId="sec_48__subsec_1">
+                        <intro eId="sec_48__subsec_1__intro">
+                            <p>Pelastusylijohtaja ratkaisee 42 §:ssä säädetyn lisäksi asiat, jotka koskevat:</p>
+                        </intro>
+                        <paragraph eId="sec_48__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>pelastuslain 38 §:ssä tarkoitettua kansainvälistä pelastustoimintaa</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_2">
+                            <content>
+                                <p>ja muuta yhteistoimintaa lukuun ottamatta rajavartiolaitoksen tehtäviin kuuluvaa asiaa;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_3">
+                            <num>2) </num>
+                            <content>
+                                <p>Hätäkeskuslaitoksen tulosohjausta ja Hätäkeskuslaitoksen yleisjärjestelyjä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_4">
+                            <num>3) </num>
+                            <content>
+                                <p>pelastustoiminnan johtamista pelastuslain 34 §:n 4 momentissa ja 36 §:ssä tarkoitetulla tavalla;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_5">
+                            <num>4) </num>
+                            <content>
+                                <p>pelastuslain 107 §:ssä tarkoitettua onnettomuuden selvittämisen järjestämistä;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_6">
+                            <num>5) </num>
+                            <content>
+                                <p>pelastusviranomaisen virkapuvun ja virka-asematunnusten vahvistamista;</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_7">
+                            <num>6) </num>
+                            <content>
+                                <p>erivapauden myöntämistä asetuksella säädetyistä kelpoisuusvaatimuksista Hätäkeskuslaitoksen virkaan sekä hyvinvointialueen ja Helsingin kaupungin pelastuslaitoksen virkaan tai tehtävään; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_48__subsec_1__para_8">
+                            <num>7) </num>
+                            <content>
+                                <p>palosuojelurahaston hallituksen palkkioiden vahvistamista.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_48__subsec_2">
+                        <content>
+                            <p>Edellä 1 momentin 3 kohdassa tarkoitetut asiat pelastusylijohtaja voi ratkaista tilanteen kiireellisyyden niin vaatiessa ilman esittelyä.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_51">
+                    <num>51 §</num>
+                    <heading>Sisäministeriön pelastusviranomainen</heading>
+                    <subsection eId="sec_51__subsec_1">
+                        <content>
+                            <p>Pelastusylijohtajan päivystämään määräämä sisäministeriön pelastusviranomainen voi ratkaista pelastuslain 34 §:n 4 momentissa ja 36 §:ssä tarkoitettuja asioita ilman esittelyä, jos asia ei kiireen vuoksi siedä viivytystä tai on vähäinen.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_51__subsec_2">
+                        <content>
+                            <p>Pelastusylijohtajan pelastustoimintaa johtamaan määräämä sisäministeriön pelastusviranomainen voi ratkaista pelastuslain 34 §:n 4 momentissa ja 36 §:ssä tarkoitettuja asioita ilman esittelyä.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_54">
+                    <num>54 §</num>
+                    <heading>Ministeriön varallaolojärjestely </heading>
+                    <subsection eId="sec_54__subsec_1">
+                        <content>
+                            <p>Ministeriössä on poikkeuksellisten tilanteiden varalta varallaolojärjestely. Varallaolojärjestelyn tarkoituksena on varmistaa ministeriön toimintavalmius myös virka-ajan ulkopuolella.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_54__subsec_2">
+                        <content>
+                            <p>Varallaolija valmistelee virka-ajan ulkopuolella kiireelliset puolustusvoimien virka-avusta poliisille annetun lain 10 §:n 1–3 momentissa ja rajavartiolain 77 c §:n 1–3 momentissa tarkoitetun vaativaa virka-apua koskevat pyynnöt sekä kiireelliset poliisilain 9 luvun 2 a–c, 9 a ja 9 b §:ssä tarkoitetut kansainväliseen ja viranomaisyhteistyöhön yhteistyöhön liittyvät päätökset.</p>
+                        </content>
+                    </subsection>
+                </section>
+            </hcontainer>
+            <hcontainer name="entryIntoForceStart"/>
+            <hcontainer eId="entryIntoForce" name="entryIntoForce">
+                <content>
+                    <p>Tämä asetus tulee voimaan 7 päivänä tammikuuta 2026.</p>
+                </content>
+            </hcontainer>
+            <hcontainer finlex:outline="Esityöt ja allekirjoitukset" name="conclusions">
+                <hcontainer finlex:outline="Allekirjoitukset" name="signatures">
+                    <content>
+                        <p>Helsingissä 5 päivänä tammikuuta 2026</p>
+                        <p>
+                            <signature>
+                                <role refersTo="">Sisäministeri</role>
+                                <person refersTo="">Mari Rantanen</person>
+                            </signature>
+                            <signature>
+                                <role refersTo="">Hallitusneuvos</role>
+                                <person refersTo="">Hanna Partanen</person>
+                            </signature>
+                        </p>
+                    </content>
+                </hcontainer>
+            </hcontainer>
+        </body>
+    </act>
+</akomaNtoso>

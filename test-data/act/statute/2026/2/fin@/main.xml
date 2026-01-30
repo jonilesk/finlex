@@ -1,0 +1,461 @@
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0" xmlns:finlex="http://data.finlex.fi/schema/finlex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <act contains="originalVersion" name="main">
+        <meta>
+            <identification source="#organization_fi.finlex">
+                <FRBRWork>
+                    <FRBRthis value="/akn/fi/act/statute/2026/2/!main"/>
+                    <FRBRuri value="/akn/fi/act/statute/2026/2"/>
+                    <FRBRalias name="eli" value="http://data.finlex.fi/eli/sd/2026/2/alkup"/>
+                    <FRBRdate date="2026-01-08" name="dateIssued"/>
+                    <FRBRdate date="2026-01-09" name="datePublished"/>
+                    <FRBRauthor as="#role_author" href="#organization_fi.parliament"/>
+                    <FRBRcountry value="fi"/>
+                    <FRBRsubtype value="statute"/>
+                    <FRBRnumber value="2"/>
+                    <FRBRprescriptive value="true"/>
+                    <FRBRauthoritative value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/akn/fi/act/statute/2026/2/fin@/!main"/>
+                    <FRBRuri value="/akn/fi/act/statute/2026/2/fin@"/>
+                    <FRBRalias name="eli" value="http://data.finlex.fi/eli/sd/2026/2/alkup/fin"/>
+                    <FRBRdate date="2026-01-08" name="dateIssued"/>
+                    <FRBRdate date="2026-01-09" name="datePublished"/>
+                    <FRBRauthor as="#role_author" href="#organization_fi.parliament"/>
+                    <FRBRlanguage language="fin"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/akn/fi/act/statute/2026/2/fin@/!main.xml"/>
+                    <FRBRuri value="/akn/fi/act/statute/2026/2/fin@.akn"/>
+                    <FRBRalias name="eli" value="http://data.finlex.fi/eli/sd/2026/2/alkup/fin/xml"/>
+                    <FRBRdate date="2026-01-09" name="dateProduced"/>
+                    <FRBRdate date="2026-01-09" name="datePublished"/>
+                    <FRBRauthor as="#role_editor" href="#organization_fi.finlex"/>
+                    <FRBRformat value="xml"/>
+                </FRBRManifestation>
+            </identification>
+            <references source="#organization_fi.finlex">
+                <TLCOrganization eId="organization_fi.finlex" href="/akn/ontology/organization/fi.finlex" showAs="Finlex"/>
+                <TLCRole eId="role_author" href="/akn/ontology/role/author" showAs="Tekijä"/>
+                <TLCRole eId="role_editor" href="/akn/ontology/role/editor" showAs="Toimittaja"/>
+                <TLCConcept eId="decree" href="/akn/ontology/concept/statute/type-statute.decree" showAs="Asetus"/>
+                <TLCConcept eId="new-statute" href="/akn/ontology/concept/statute/category-statute.new-statute" showAs="Uusi säädös"/>
+            </references>
+            <proprietary source="#organization_fi.finlex">
+                <finlex:typeStatute refersTo="#decree"/>
+                <finlex:categoryStatute refersTo="#new-statute"/>
+                <finlex:documentYear>2026</finlex:documentYear>
+            </proprietary>
+        </meta>
+        <preface>
+            <p>
+                <docNumber>2/2026</docNumber>
+                <docTitle>Valtioneuvoston asetus uuden rakennuksen hiilijalanjäljen raja-arvoista</docTitle>
+            </p>
+        </preface>
+        <preamble>
+            <formula name="enactingClause">
+                <p>
+                    Valtioneuvoston päätöksen mukaisesti säädetään rakentamislain 
+                    <ref href="/akn/fi/act/statute/2023/751">(751/2023)</ref>
+                     38 a §:n 4 momentin nojalla, sellaisena kuin se on laissa 897/2024:
+                </p>
+            </formula>
+        </preamble>
+        <body>
+            <hcontainer finlex:outline="Säädöksen teksti" name="statuteProvisionsWrapper">
+                <section eId="sec_1">
+                    <num>1 §</num>
+                    <heading>Soveltamisala</heading>
+                    <subsection eId="sec_1__subsec_1">
+                        <content>
+                            <p>
+                                Tässä asetuksessa säädetään tarkemmin rakentamislain 
+                                <ref href="/akn/fi/act/statute/2023/751">(751/2023)</ref>
+                                 38 a §:ssä tarkoitetuista uuden rakennuksen elinkaaren hiilijalanjäljen käyttötarkoitusluokittaisista raja-arvoista. 
+                            </p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_1__subsec_2">
+                        <content>
+                            <p>
+                                Tätä asetusta ei sovelleta Puolustusvoimien valtion kiinteistövarallisuuteen luettavaan tai muutoin valtion käyttöä palvelevaan, välittömästi puolustustarkoitukseen liittyvään uuteen rakennukseen tai sen osaan, eikä rakennukseen tai sen osaan, jolle ei tarvitse rakennuksen energiatodistuksesta annetun lain 
+                                <ref href="/akn/fi/act/statute/2013/50">(50/2013)</ref>
+                                 mukaan hankkia energiatodistusta. 
+                            </p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_2">
+                    <num>2 §</num>
+                    <heading>Usean käyttötarkoituksen rakennukset</heading>
+                    <subsection eId="sec_2__subsec_1">
+                        <content>
+                            <p>Jos rakennuksessa on osia, jotka palvelevat eri käyttötarkoituksia, mikään osa ei saa ylittää sen käyttötarkoitusluokalle säädettyä raja-arvoa.</p>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_3">
+                    <num>3 §</num>
+                    <heading>Rakennuksen hiilijalanjäljen raja-arvot vuosien 2026, 2027 ja 2028 aikana </heading>
+                    <subsection eId="sec_3__subsec_1">
+                        <content>
+                            <p>Hiilijalanjäljen raja-arvot vuonna 2026, 2027 ja 2028 ovat seuraavat:</p>
+                            <table class="frame-all">
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Käyttötarkoitusluokka</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1" colspan="2">
+                                        <p>Hiilijalanjäljen raja-arvo</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p/>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>
+                                            kgCO
+                                            <sub>2</sub>
+                                            e/m
+                                            <sup>2</sup>
+                                            /a
+                                        </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>
+                                            kgCO
+                                            <sub>2</sub>
+                                            e/m
+                                            <sup>2</sup>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Rivitalo ja asuinkerrostalo, jossa on enintään kaksi asuinkerrosta</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>16,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>800</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Asuinkerrostalo, jossa on vähintään kolme asuinkerrosta</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>16,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>800</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Toimistorakennus ja terveyskeskus</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>20,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Liikerakennus, tavaratalo, kauppakeskus, myymälärakennus, myymälähalli, teatteri, ooppera-, konsertti- ja kongressitalo, elokuvateatteri, kirjasto, arkisto, museo, taidegalleria ja näyttelyhalli</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>22,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 100</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Majoitusliikerakennus, hotelli, asuntola, palvelutalo, vanhainkoti ja hoitolaitos</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>25,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 250</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Opetusrakennus ja päiväkoti</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>20,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Liikuntahalli</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>21,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 050</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Sairaala</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>29,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 450</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Hyötypinta-alaltaan yli 1 000 neliömetrin suuruinen varastorakennus, liikenteen rakennus, uimahalli ja jäähalli</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>24,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 200</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_4">
+                    <num>4 §</num>
+                    <heading>Rakennuksen hiilijalanjäljen raja-arvot vuoden 2029 alusta </heading>
+                    <subsection eId="sec_4__subsec_1">
+                        <content>
+                            <p>Hiilijalanjäljen raja-arvot vuoden 2029 alusta ovat seuraavat:</p>
+                            <table class="frame-all">
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Käyttötarkoitusluokka</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1" colspan="2">
+                                        <p>Hiilijalanjäljen raja-arvo</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p/>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>
+                                            kgCO
+                                            <sub>2</sub>
+                                            e/m
+                                            <sup>2</sup>
+                                            /a
+                                        </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>
+                                            kgCO
+                                            <sub>2</sub>
+                                            e/m
+                                            <sup>2</sup>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Rivitalo ja asuinkerrostalo, jossa on enintään kaksi asuinkerrosta</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>13,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>650</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Asuinkerrostalo, jossa on vähintään kolme asuinkerrosta</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>12,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>600</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Toimistorakennus ja terveyskeskus</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>17,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>850</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Liikerakennus, tavaratalo, kauppakeskus, myymälärakennus, myymälähalli, teatteri, ooppera-, konsertti- ja kongressitalo, elokuvateatteri, kirjasto, arkisto, museo, taidegalleria ja näyttelyhalli</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>18,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>900</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Majoitusliikerakennus, hotelli, asuntola, palvelutalo, vanhainkoti ja hoitolaitos</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>22,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 100</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Opetusrakennus ja päiväkoti</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>16,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>800</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Liikuntahalli</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>18,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>900</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Sairaala</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>28,0</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 400</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>Hyötypinta-alaltaan yli 1 000 neliömetrin suuruinen varastorakennus, liikenteen rakennus, uimahalli ja jäähalli</p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>21,0 </p>
+                                    </td>
+                                    <td class="colsep-1 rowsep-1">
+                                        <p>1 050</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </content>
+                    </subsection>
+                </section>
+                <section eId="sec_5">
+                    <num>5 §</num>
+                    <heading>Sallitut raja-arvon ylitykset erityistilanteissa</heading>
+                    <subsection eId="sec_5__subsec_1">
+                        <intro eId="sec_5__subsec_1__intro">
+                            <p>Edellä 4 §:ssä säädetty hiilijalanjäljen raja-arvo saa ylittyä enintään viisi prosenttia, jos uuden rakennuksen suunnittelu ja toteuttaminen on erityisen vaikeaa: </p>
+                        </intro>
+                        <paragraph eId="sec_5__subsec_1__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>rakennuksen, sen käyttötarkoituksen tai sijaintipaikan ominaispiirteiden takia; </p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_5__subsec_1__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>sellaisten kaavamääräysten noudattamisen takia, jotka nostavat merkittävästi rakennuksen hiilijalanjälkeä; tai</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_5__subsec_1__para_3">
+                            <num>3) </num>
+                            <content>
+                                <p>tavanomaisesta rakentamisesta poikkeavien, pitkäikäisyyttä edistävien elinkaariominaisuuksien takia.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                    <subsection eId="sec_5__subsec_2">
+                        <intro eId="sec_5__subsec_2__intro">
+                            <p>Poiketen siitä, mitä 1 momentissa säädetään ylityksen enimmäismäärästä, raja-arvo saa ylittyä sen verran, kuin on välttämätöntä, jos:</p>
+                        </intro>
+                        <paragraph eId="sec_5__subsec_2__para_1">
+                            <num>1) </num>
+                            <content>
+                                <p>raja-arvon alittaminen on erityisen vaikeaa rakennuksen korkeuden vuoksi; tai</p>
+                            </content>
+                        </paragraph>
+                        <paragraph eId="sec_5__subsec_2__para_2">
+                            <num>2) </num>
+                            <content>
+                                <p>kantavien ja jäykistävien rakenteiden suunnittelu ja toteuttaminen siten, että raja-arvo alittuu, on erityisen vaikeaa rakennuksen poikkeuksellisen vaativan sijaintipaikan vuoksi.</p>
+                            </content>
+                        </paragraph>
+                    </subsection>
+                </section>
+                <section eId="sec_6">
+                    <num>6 §</num>
+                    <heading>Voimaantulo</heading>
+                    <subsection eId="sec_6__subsec_1">
+                        <content>
+                            <p>Tämä asetus tulee voimaan 9 päivänä tammikuuta 2026. Sen 4 ja 5 § tulevat kuitenkin voimaan vasta 1 päivänä tammikuuta 2029. Sen 3 § on voimassa 31 päivään joulukuuta 2028.</p>
+                        </content>
+                    </subsection>
+                    <subsection eId="sec_6__subsec_2">
+                        <content>
+                            <p>Rakennukseen, jota koskeva rakentamislupahakemus on ollut vireillä tämän asetuksen voimaan tullessa, sovelletaan tämän asetuksen voimaan tullessa voimassa olleita säännöksiä. Rakennukseen, jota koskeva rakentamislupahakemus on ollut vireillä 4 §:n voimaan tullessa, sovelletaan mainitun pykälän voimaan tullessa voimassa olleita säännöksiä.</p>
+                        </content>
+                    </subsection>
+                </section>
+            </hcontainer>
+            <hcontainer finlex:outline="Esityöt ja allekirjoitukset" name="conclusions">
+                <hcontainer finlex:outline="Esityöt" name="preliminaryWork">
+                    <content>
+                        <p>Euroopan parlamentin ja neuvoston direktiivi 2015/1535/EU (32015L1535), EUVL L 241, 17.9.2015, s. 1</p>
+                    </content>
+                </hcontainer>
+                <hcontainer finlex:outline="Allekirjoitukset" name="signatures">
+                    <content>
+                        <p>Helsingissä 8.1.2026</p>
+                        <p>
+                            <signature>
+                                <role refersTo="">Ympäristö- ja ilmastoministeri</role>
+                                <person refersTo="">Sari Multala</person>
+                            </signature>
+                            <signature>
+                                <role refersTo="">Lainsäädäntöneuvos</role>
+                                <person refersTo="">Mikko Koskela</person>
+                            </signature>
+                        </p>
+                    </content>
+                </hcontainer>
+            </hcontainer>
+        </body>
+    </act>
+</akomaNtoso>

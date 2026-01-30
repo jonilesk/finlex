@@ -1,0 +1,39 @@
+{
+  "updated_at": "2026-01-30T17:06:55.248881",
+  "total_entries": 3,
+  "success_count": 3,
+  "skipped_count": 0,
+  "error_count": 0,
+  "entries": [
+    {
+      "akn_uri": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/1/fin@",
+      "status": "success",
+      "timestamp": "2026-01-30T17:06:22.377347",
+      "files": [
+        "test-data/act/statute/2026/1/fin@/main.xml",
+        "test-data/act/statute/2026/1/fin@/main.pdf"
+      ],
+      "error": null
+    },
+    {
+      "akn_uri": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/2/fin@",
+      "status": "success",
+      "timestamp": "2026-01-30T17:06:32.824032",
+      "files": [
+        "test-data/act/statute/2026/2/fin@/main.xml",
+        "test-data/act/statute/2026/2/fin@/main.pdf"
+      ],
+      "error": null
+    },
+    {
+      "akn_uri": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/3/fin@",
+      "status": "success",
+      "timestamp": "2026-01-30T17:06:44.896573",
+      "files": [
+        "test-data/act/statute/2026/3/fin@/main.xml",
+        "test-data/act/statute/2026/3/fin@/main.pdf"
+      ],
+      "error": null
+    }
+  ]
+}

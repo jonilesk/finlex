@@ -1,0 +1,13 @@
+{
+  "current_category": "act",
+  "current_document_type": "statute",
+  "current_page": 3,
+  "last_uri": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/3/fin@",
+  "completed_uris": [
+    "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/2/fin@",
+    "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/3/fin@",
+    "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2026/1/fin@"
+  ],
+  "started_at": "2026-01-30T17:06:22.231029",
+  "updated_at": "2026-01-30T17:06:55.249227"
+}
