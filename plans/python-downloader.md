@@ -74,20 +74,20 @@
 ---
 
 ### Phase 3: Download strategy
-- [ ] 8. **Document downloader**
-   - [ ] For each `akn_uri`: Fetch XML (default Akoma Ntoso).
-   - [ ] Optionally fetch `main.pdf`.
-   - [ ] Optionally fetch ZIP (`main.akn` with `Accept: application/zip`).
-   - [ ] Skip existing files unless `--force` is set.
+- [x] 8. **Document downloader**
+   - [x] For each `akn_uri`: Fetch XML (default Akoma Ntoso).
+   - [x] Optionally fetch `main.pdf`.
+   - [x] Optionally fetch ZIP (`main.akn` with `Accept: application/zip`).
+   - [x] Skip existing files unless `--force` is set.
 
-- [ ] 9. **Media discovery**
-   - [ ] Parse Akoma Ntoso XML for media references in elements like `<img>`, `<ref>`, and `<attachment>`.
-   - [ ] Follow relative links (HATEOAS) to fetch media assets.
+- [x] 9. **Media discovery**
+   - [x] Parse Akoma Ntoso XML for media references in elements like `<img>`, `<ref>`, and `<attachment>`.
+   - [x] Follow relative links (HATEOAS) to fetch media assets.
 
-- [ ] 10. **Test & validate Phase 3**
-    - [ ] Unit test: XML parsing finds media links in sample XML.
-    - [ ] Unit test: download skips existing files.
-    - [ ] Manual test: download one act with PDF and media.
+- [x] 10. **Test & validate Phase 3**
+    - [x] Unit test: XML parsing finds media links in sample XML.
+    - [x] Unit test: download skips existing files.
+    - [x] Manual test: download one act with PDF and media.
 
 ---
 
