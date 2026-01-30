@@ -53,23 +53,23 @@
 ---
 
 ### Phase 2: Listing and URL handling
-- [ ] 4. **Spec-driven endpoint map**
-   - [ ] Parse OpenAPI YAML to list endpoints for act/judgment/doc and authority-regulation.
-   - [ ] Identify list endpoints and detail endpoints (XML, PDF, ZIP, media).
+- [x] 4. **Spec-driven endpoint map**
+   - [x] Parse OpenAPI YAML to list endpoints for act/judgment/doc and authority-regulation.
+   - [x] Identify list endpoints and detail endpoints (XML, PDF, ZIP, media).
 
-- [ ] 5. **Listing strategy**
-   - [ ] Use list endpoints with paging (`page`, `limit`) and filters (e.g., year range, langAndVersion).
-   - [ ] Support per-type year settings (e.g., last N years for act, different N for judgment).
-   - [ ] Collect `akn_uri` values from JSON list responses.
+- [x] 5. **Listing strategy**
+   - [x] Use list endpoints with paging (`page`, `limit`) and filters (e.g., year range, langAndVersion).
+   - [x] Support per-type year settings (e.g., last N years for act, different N for judgment).
+   - [x] Collect `akn_uri` values from JSON list responses.
 
-- [ ] 6. **URL/path utilities**
-   - [ ] Parse `akn_uri` to extract document type, year, number, langAndVersion.
-   - [ ] Build local folder path from URI components.
+- [x] 6. **URL/path utilities**
+   - [x] Parse `akn_uri` to extract document type, year, number, langAndVersion.
+   - [x] Build local folder path from URI components.
 
-- [ ] 7. **Test & validate Phase 2**
-   - [ ] Unit test: URL parsing extracts correct components.
-   - [ ] Unit test: folder path generation matches expected structure.
-   - [ ] Manual test: list endpoint returns valid JSON with `akn_uri`.
+- [x] 7. **Test & validate Phase 2**
+   - [x] Unit test: URL parsing extracts correct components.
+   - [x] Unit test: folder path generation matches expected structure.
+   - [x] Manual test: list endpoint returns valid JSON with `akn_uri`.
 
 ---
 
