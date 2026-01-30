@@ -92,20 +92,20 @@
 ---
 
 ### Phase 4: Persistence and state
-- [ ] 11. **Folder structure**
-    - [ ] Save using the folder structure defined above.
+- [x] 11. **Folder structure**
+    - [x] Save using the folder structure defined above.
 
-- [ ] 12. **Resumability / checkpointing**
-    - [ ] Maintain a state file (e.g., `state.json`) tracking last completed page and URI.
-    - [ ] On restart, resume from last checkpoint instead of starting over.
+- [x] 12. **Resumability / checkpointing**
+    - [x] Maintain a state file (e.g., `state.json`) tracking last completed page and URI.
+    - [x] On restart, resume from last checkpoint instead of starting over.
 
-- [ ] 13. **Metadata logging**
-    - [ ] Write a manifest file (e.g., `manifest.json`) per download batch.
-    - [ ] Include: document URIs, timestamps, status (success/skipped/error), file paths.
+- [x] 13. **Metadata logging**
+    - [x] Write a manifest file (e.g., `manifest.json`) per download batch.
+    - [x] Include: document URIs, timestamps, status (success/skipped/error), file paths.
 
-- [ ] 14. **Test & validate Phase 4**
-    - [ ] Unit test: state file saves and loads correctly.
-    - [ ] Unit test: manifest records success/error status.
+- [x] 14. **Test & validate Phase 4**
+    - [x] Unit test: state file saves and loads correctly.
+    - [x] Unit test: manifest records success/error status.
     - [ ] Manual test: interrupt download, resume, verify no duplicates.
 
 ---
