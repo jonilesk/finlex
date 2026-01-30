@@ -131,12 +131,12 @@
 ---
 
 ### Phase 6: Documentation and release
-- [ ] 19. **Deliverables**
-    - [ ] Python script/module for downloading.
-    - [ ] README section with usage examples and rate-limit guidance.
-    - [ ] Example commands for common use cases.
+- [x] 19. **Deliverables**
+    - [x] Python script/module for downloading.
+    - [x] README section with usage examples and rate-limit guidance.
+    - [x] Example commands for common use cases.
 
-- [ ] 20. **Final validation**
-    - [ ] Run full test suite.
+- [x] 20. **Final validation**
+    - [x] Run full test suite.
     - [ ] Download sample set of Finnish acts and verify folder structure.
     - [ ] Review manifest for completeness.
