@@ -1,0 +1,2 @@
+[console_scripts]
+finlex-downloader = finlex_downloader.cli:main

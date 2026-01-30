@@ -1,0 +1,11 @@
+pyproject.toml
+src/finlex_downloader/__init__.py
+src/finlex_downloader/client.py
+src/finlex_downloader/logging_config.py
+src/finlex_downloader.egg-info/PKG-INFO
+src/finlex_downloader.egg-info/SOURCES.txt
+src/finlex_downloader.egg-info/dependency_links.txt
+src/finlex_downloader.egg-info/entry_points.txt
+src/finlex_downloader.egg-info/requires.txt
+src/finlex_downloader.egg-info/top_level.txt
+tests/test_client.py
