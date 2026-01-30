@@ -111,21 +111,21 @@
 ---
 
 ### Phase 5: CLI and error handling
-- [ ] 15. **Error handling**
-    - [ ] Retry with exponential backoff for HTTP 429, 5xx, and network timeouts.
-    - [ ] Log failures to manifest and continue with remaining items.
+- [x] 15. **Error handling**
+    - [x] Retry with exponential backoff for HTTP 429, 5xx, and network timeouts.
+    - [x] Log failures to manifest and continue with remaining items.
 
-- [ ] 16. **Concurrency**
-    - [ ] Single-threaded by default to respect rate limits.
+- [x] 16. **Concurrency**
+    - [x] Single-threaded by default to respect rate limits.
 
-- [ ] 17. **CLI design**
-    - [ ] Arguments: `--output`, `--types`, `--years`, `--lang`, `--limit`, `--page`, `--sleep`, `--pdf`, `--zip`, `--media`, `--force`, `--dry-run`, `--resume`.
-    - [ ] Per-type year settings via `--years-act`, `--years-judgment`, `--years-doc`, `--years-authority-regulation`.
-    - [ ] Alternative: config file (YAML/JSON) for complex per-type settings.
+- [x] 17. **CLI design**
+    - [x] Arguments: `--output`, `--types`, `--years`, `--lang`, `--limit`, `--page`, `--sleep`, `--pdf`, `--zip`, `--media`, `--force`, `--dry-run`, `--resume`.
+    - [x] Per-type year settings via `--years-act`, `--years-judgment`, `--years-doc`, `--years-authority-regulation`.
+    - [x] Alternative: config file (YAML/JSON) for complex per-type settings.
 
-- [ ] 18. **Test & validate Phase 5**
-    - [ ] Unit test: CLI parses all arguments correctly.
-    - [ ] Unit test: dry-run mode logs actions without writing files.
+- [x] 18. **Test & validate Phase 5**
+    - [x] Unit test: CLI parses all arguments correctly.
+    - [x] Unit test: dry-run mode logs actions without writing files.
     - [ ] Manual test: full end-to-end download of a small dataset.
 
 ---
