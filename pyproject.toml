@@ -27,6 +27,7 @@ dev = [
 
 [project.scripts]
 finlex-downloader = "finlex_downloader.cli:main"
+finlex-converter = "finlex_converter.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
