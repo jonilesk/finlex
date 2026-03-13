@@ -28,6 +28,8 @@ class ListConfig:
     end_year: Optional[int] = None
     limit: int = 10
     max_pages: Optional[int] = None  # None = fetch all
+    type_statute: Optional[str] = None  # e.g. "act" — for list endpoint filtering
+    category_statute: Optional[str] = None  # e.g. "new-statute"
 
 
 # Default document types per category
@@ -84,6 +86,10 @@ def list_documents(
             params["startYear"] = config.start_year
         if config.end_year:
             params["endYear"] = config.end_year
+        if config.type_statute:
+            params["typeStatute"] = config.type_statute
+        if config.category_statute:
+            params["categoryStatute"] = config.category_statute
 
         logger.info(f"Fetching {config.category}/{config.document_type} page {page}")
         response = client.get_json(path, params=params)

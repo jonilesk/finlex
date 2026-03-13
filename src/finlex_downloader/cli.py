@@ -85,6 +85,16 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
         help="Maximum pages to fetch per document type",
     )
 
+    # API filtering
+    parser.add_argument(
+        "--type-statute",
+        help="Filter by typeStatute param (e.g., 'act')",
+    )
+    parser.add_argument(
+        "--category-statute",
+        help="Filter by categoryStatute param (e.g., 'new-statute')",
+    )
+
     # Download options
     parser.add_argument(
         "--sleep",
@@ -226,6 +236,8 @@ def run_download(args: argparse.Namespace) -> int:
                     end_year=end_year,
                     limit=min(args.limit, 10),
                     max_pages=args.max_pages,
+                    type_statute=args.type_statute,
+                    category_statute=args.category_statute,
                 )
 
                 state_manager.start_session(actual_category, doc_type)

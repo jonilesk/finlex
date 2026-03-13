@@ -1,9 +1,12 @@
 """Tests for CLI."""
 
 import pytest
+import responses
 from pathlib import Path
 
 from finlex_downloader.cli import parse_args, get_years_for_type
+from finlex_downloader.listing import ListConfig, list_documents
+from finlex_downloader.client import FinlexClient
 
 
 class TestParseArgs:
@@ -97,3 +100,65 @@ class TestGetYearsForType:
             "--years-authority-regulation", "10",
         ])
         assert get_years_for_type(args, "authority-regulation") == 10
+
+    def test_type_statute_param(self):
+        """Type statute filter param."""
+        args = parse_args(["--type-statute", "act"])
+        assert args.type_statute == "act"
+
+    def test_category_statute_param(self):
+        """Category statute filter param."""
+        args = parse_args(["--category-statute", "new-statute"])
+        assert args.category_statute == "new-statute"
+
+    def test_filter_params_default_none(self):
+        """Filter params are None by default."""
+        args = parse_args([])
+        assert args.type_statute is None
+        assert args.category_statute is None
+
+
+class TestListConfigQueryParams:
+    """Tests for query param threading to list endpoint."""
+
+    @responses.activate
+    def test_type_statute_sent_in_request(self):
+        """typeStatute param is sent when configured."""
+        responses.add(
+            responses.GET,
+            "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/list",
+            json=[],
+            status=200,
+        )
+        client = FinlexClient(sleep_seconds=0)
+        config = ListConfig(
+            category="act",
+            document_type="statute",
+            type_statute="act",
+            category_statute="new-statute",
+            max_pages=1,
+        )
+        list(list_documents(client, config))
+
+        assert "typeStatute=act" in responses.calls[0].request.url
+        assert "categoryStatute=new-statute" in responses.calls[0].request.url
+
+    @responses.activate
+    def test_filter_params_omitted_when_none(self):
+        """typeStatute/categoryStatute omitted when not set."""
+        responses.add(
+            responses.GET,
+            "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/list",
+            json=[],
+            status=200,
+        )
+        client = FinlexClient(sleep_seconds=0)
+        config = ListConfig(
+            category="act",
+            document_type="statute",
+            max_pages=1,
+        )
+        list(list_documents(client, config))
+
+        assert "typeStatute" not in responses.calls[0].request.url
+        assert "categoryStatute" not in responses.calls[0].request.url
