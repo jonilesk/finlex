@@ -13,6 +13,8 @@ from finlex_converter.parser import (
     Chapter,
 )
 from finlex_converter.renderer import render_statute
+from finlex_converter.citations import parse_citation, Citation
+from finlex_converter.indexer import StatuteIndex, IndexEntry, build_index_from_xml
 from finlex_converter.cli import parse_args, find_xml_files, convert_file
 
 
@@ -379,3 +381,108 @@ class TestConverterCli:
 
         result = convert_file(xml_path, tmp_path / "input", tmp_path / "output")
         assert result is None
+
+
+# --- Citation Tests ---
+
+class TestCitationParser:
+    """Tests for parse_citation."""
+
+    def test_basic_citation(self):
+        """Parse standard number/year format."""
+        c = parse_citation("689/1997")
+        assert c is not None
+        assert c.number == "689"
+        assert c.year == "1997"
+        assert c.display == "689/1997"
+
+    def test_citation_with_spaces(self):
+        """Parse citation with spaces around slash."""
+        c = parse_citation("731 / 1999")
+        assert c is not None
+        assert c.number == "731"
+        assert c.year == "1999"
+
+    def test_citation_with_whitespace(self):
+        """Leading/trailing whitespace is stripped."""
+        c = parse_citation("  39/1889  ")
+        assert c is not None
+        assert c.display == "39/1889"
+
+    def test_invalid_citation(self):
+        """Non-matching strings return None."""
+        assert parse_citation("not a citation") is None
+        assert parse_citation("") is None
+        assert parse_citation("689") is None
+
+    def test_to_api_path(self):
+        """Citation maps to API path."""
+        c = parse_citation("731/1999")
+        assert c.to_api_path() == "/akn/fi/act/statute/1999/731/fin@"
+        assert c.to_api_path("statute-consolidated") == "/akn/fi/act/statute-consolidated/1999/731/fin@"
+
+    def test_to_folder_path(self):
+        """Citation maps to folder path."""
+        c = parse_citation("731/1999")
+        assert c.to_folder_path() == Path("act/statute/1999/731/fin@")
+        assert c.to_folder_path("statute-consolidated") == Path("act/statute-consolidated/1999/731/fin@")
+
+
+# --- Index Tests ---
+
+class TestStatuteIndex:
+    """Tests for StatuteIndex."""
+
+    def test_add_and_lookup(self):
+        """Add and look up an entry."""
+        index = StatuteIndex()
+        entry = IndexEntry(citation="100/2024", title="Testilaki", path="act/statute/2024/100/fin@/statute.md")
+        index.add(entry)
+
+        result = index.lookup("100/2024")
+        assert result is not None
+        assert result.title == "Testilaki"
+
+    def test_lookup_missing(self):
+        """Missing citation returns None."""
+        index = StatuteIndex()
+        assert index.lookup("999/2024") is None
+
+    def test_save_and_load(self, tmp_path):
+        """Index round-trips through JSON."""
+        index = StatuteIndex()
+        index.add(IndexEntry(
+            citation="100/2024", title="Testilaki",
+            path="act/statute/2024/100/fin@/statute.md",
+            subtype="statute", eli="http://example.com/eli",
+            date_issued="2024-03-01",
+        ))
+        index.add(IndexEntry(
+            citation="200/2024", title="Toinen laki",
+            path="act/statute/2024/200/fin@/statute.md",
+        ))
+
+        json_path = tmp_path / "index.json"
+        index.save(json_path)
+
+        loaded = StatuteIndex.load(json_path)
+        assert len(loaded.entries) == 2
+        assert loaded.lookup("100/2024").title == "Testilaki"
+        assert loaded.lookup("200/2024").title == "Toinen laki"
+
+    def test_load_missing_file(self, tmp_path):
+        """Loading from nonexistent file returns empty index."""
+        index = StatuteIndex.load(tmp_path / "nope.json")
+        assert len(index.entries) == 0
+
+    def test_build_index_from_xml(self):
+        """Build index from test-data XML files."""
+        input_dir = Path("test-data")
+        if not input_dir.exists():
+            pytest.skip("test-data not available")
+
+        index = build_index_from_xml(input_dir, Path("/tmp/md"))
+        assert len(index.entries) == 3
+        assert index.lookup("1/2026") is not None
+        assert index.lookup("2/2026") is not None
+        assert index.lookup("3/2026") is not None

@@ -8,6 +8,7 @@ from typing import Optional
 from finlex_downloader.logging_config import setup_logging, logger
 from .parser import parse_statute
 from .renderer import render_statute
+from .indexer import build_index_from_xml
 
 
 def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
@@ -131,6 +132,11 @@ def run_convert(args: argparse.Namespace) -> int:
             failed += 1
 
     logger.info(f"Conversion complete: {success} success, {failed} failed")
+
+    # Build citation index
+    index = build_index_from_xml(args.input, args.output)
+    index.save(args.output / "index.json")
+
     return 0 if failed == 0 else 1
 
 
