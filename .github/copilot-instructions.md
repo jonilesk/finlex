@@ -1,4 +1,4 @@
-# Copilot Instructions for finlex-downloader
+# Copilot Instructions for finlex
 
 ## Build & Test
 
@@ -20,9 +20,9 @@ There are no linters or formatters configured.
 
 ## Architecture
 
-CLI tool that downloads Akoma Ntoso XML documents from the Finnish Finlex Open Data API. Single-threaded, sequential design that respects API rate limits.
+Two packages for downloading Finnish law from the Finlex Open Data API and converting it to Markdown.
 
-**Module flow:**
+### finlex_downloader — Download
 
 ```
 cli.py          → Entry point, argument parsing, main download loop
@@ -41,10 +41,24 @@ cli.py          → Entry point, argument parsing, main download loop
 
 **Pagination:** `list_documents()` is a generator that yields `ListItem` objects, stopping when a page returns fewer items than the limit, an error occurs, or `max_pages` is reached.
 
+### finlex_converter — Convert XML to Markdown
+
+```
+cli.py          → Entry point: walks XML tree, converts to Markdown, builds index
+  parser.py     → AKN XML → structured dataclasses (Statute/Chapter/Section/Subsection)
+  renderer.py   → Structured data → Markdown with heading hierarchy
+  citations.py  → Finnish citation parser (689/1997 → API path / folder path)
+  indexer.py    → Builds JSON index mapping citation → file path + title
+```
+
+The converter reads downloaded XML, parses it with lxml (namespace-aware XPath), and writes one Markdown file per statute. After conversion it auto-generates `index.json` mapping every citation to its Markdown file path and metadata.
+
+**Markdown format:** H1 = statute title, H2 = chapter (luku) or section (§) when no chapters, H3 = section within chapters. Metadata block with citation, ELI, dates, type.
+
 ## Key Conventions
 
 - **HTTP mocking:** Tests use the `responses` library with `@responses.activate` decorator. Stack multiple `responses.add()` calls to simulate retries. Always set `sleep_seconds=0` on `FinlexClient` in tests.
-- **Test fixtures:** No `conftest.py`. Tests use pytest's `tmp_path` builtin and inline XML byte strings for test data. Test data samples live in `test-data/`.
+- **Test fixtures:** No `conftest.py`. Tests use pytest's `tmp_path` builtin and inline XML strings (`.encode("utf-8")` for Finnish text). Test data samples live in `test-data/`.
 - **State is saved immediately:** `StateManager.save()` is called after every state mutation to prevent data loss on interruption.
 - **Completed URIs use a set** for O(1) lookup during resume.
 - **Optional assets never fail the download:** Errors fetching PDF/ZIP/media are logged but don't mark the document as failed.
