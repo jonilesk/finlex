@@ -302,37 +302,44 @@ def run_download(args: argparse.Namespace) -> int:
 
                 state_manager.start_session(actual_category, doc_type)
 
-                # Collect URIs to download (skipping already completed)
-                uris_to_download = []
-                page = 0
-                for item in list_documents(list_client, list_config):
-                    page += 1
-                    with state_lock:
-                        if state_manager.is_completed(item.akn_uri):
-                            logger.debug(f"Already completed: {item.akn_uri}")
-                            continue
-                    uris_to_download.append(item.akn_uri)
-
-                logger.info(f"  Found {len(uris_to_download)} documents to download")
-
-                if not uris_to_download:
-                    continue
-
-                # Download in parallel
+                # Pipeline: list pages and submit downloads concurrently
                 with ThreadPoolExecutor(max_workers=workers) as executor:
-                    futures = {
-                        executor.submit(_process_item, uri): uri
-                        for uri in uris_to_download
-                    }
-                    completed = 0
+                    futures = {}
+                    submitted = 0
+                    page = 0
+
+                    for item in list_documents(list_client, list_config):
+                        page += 1
+                        with state_lock:
+                            if state_manager.is_completed(item.akn_uri):
+                                logger.debug(f"Already completed: {item.akn_uri}")
+                                continue
+                        future = executor.submit(_process_item, item.akn_uri)
+                        futures[future] = item.akn_uri
+                        submitted += 1
+
+                        # Harvest completed futures to keep memory bounded
+                        done = [f for f in futures if f.done()]
+                        for f in done:
+                            uri = futures.pop(f)
+                            try:
+                                result = f.result()
+                                _record_result(result)
+                            except Exception as e:
+                                logger.error(f"Worker error for {uri}: {e}")
+                                _record_result(DownloadResult(
+                                    akn_uri=uri,
+                                    status="error",
+                                    timestamp=datetime.now().isoformat(),
+                                    error=str(e),
+                                ))
+
+                    # Wait for remaining futures
                     for future in as_completed(futures):
                         uri = futures[future]
                         try:
                             result = future.result()
                             _record_result(result)
-                            completed += 1
-                            if completed % 100 == 0:
-                                logger.info(f"  Progress: {completed}/{len(uris_to_download)}")
                         except Exception as e:
                             logger.error(f"Worker error for {uri}: {e}")
                             _record_result(DownloadResult(
@@ -341,6 +348,8 @@ def run_download(args: argparse.Namespace) -> int:
                                 timestamp=datetime.now().isoformat(),
                                 error=str(e),
                             ))
+
+                    logger.info(f"  Submitted {submitted} documents")
 
                 with state_lock:
                     state_manager.set_page(page)
