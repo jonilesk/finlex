@@ -24,11 +24,14 @@ finlex-converter --input ./finlex-data --output ./finlex-md
 
 ### Download only currently effective law
 
-Download all consolidated statutes in Finnish, keeping only those currently in force:
+Download only consolidated statutes in Finnish, keeping only those currently in force:
 
 ```bash
-finlex-downloader --types act --lang fin@ --years 300 --in-force-only
+finlex-downloader --types act --subtypes statute-consolidated \
+  --lang fin@ --years 300 --in-force-only
 ```
+
+Use `--subtypes` to restrict which document subtypes are downloaded within a category. Omit it to download all subtypes.
 
 This filters out repealed statutes by checking `<finlex:isInForce>` in each document's XML metadata. Only statutes with `value="true"` are saved to disk.
 
@@ -73,6 +76,7 @@ finlex-downloader --help
 ```
 usage: finlex-downloader [-h] [-o OUTPUT] 
                          [--types {act,judgment,doc,authority-regulation} ...]
+                         [--subtypes SUBTYPES ...]
                          [--years YEARS] 
                          [--years-act YEARS_ACT]
                          [--years-judgment YEARS_JUDGMENT]
@@ -87,6 +91,7 @@ usage: finlex-downloader [-h] [-o OUTPUT]
 Options:
   -o, --output          Output directory (default: ./finlex-data)
   --types               Document categories: act, judgment, doc, authority-regulation
+  --subtypes            Restrict to specific subtypes (e.g., statute-consolidated)
   --years               Number of years to download (default: 1)
   --years-act           Override years for act category
   --years-judgment      Override years for judgment category

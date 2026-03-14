@@ -36,6 +36,11 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
         default=["act"],
         help="Document categories to download (default: act)",
     )
+    parser.add_argument(
+        "--subtypes",
+        nargs="+",
+        help="Restrict to specific document subtypes (e.g., statute-consolidated). Omit to download all subtypes for the category.",
+    )
 
     # Year settings
     parser.add_argument(
@@ -218,6 +223,13 @@ def run_download(args: argparse.Namespace) -> int:
             else:
                 doc_types = DOCUMENT_TYPES.get(category, [])
                 actual_category = category
+
+            # Filter subtypes if specified
+            if args.subtypes:
+                doc_types = [dt for dt in doc_types if dt in args.subtypes]
+                if not doc_types:
+                    logger.info(f"Skipping {category}: no matching subtypes")
+                    continue
 
             years = get_years_for_type(args, category)
             start_year, end_year = get_year_range(years)

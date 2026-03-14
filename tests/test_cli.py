@@ -127,6 +127,21 @@ class TestGetYearsForType:
         args = parse_args([])
         assert args.in_force_only is False
 
+    def test_subtypes_single(self):
+        """--subtypes with a single value."""
+        args = parse_args(["--subtypes", "statute-consolidated"])
+        assert args.subtypes == ["statute-consolidated"]
+
+    def test_subtypes_multiple(self):
+        """--subtypes with multiple values."""
+        args = parse_args(["--subtypes", "statute", "statute-consolidated"])
+        assert args.subtypes == ["statute", "statute-consolidated"]
+
+    def test_subtypes_default_none(self):
+        """--subtypes defaults to None."""
+        args = parse_args([])
+        assert args.subtypes is None
+
 
 class TestListConfigQueryParams:
     """Tests for query param threading to list endpoint."""
