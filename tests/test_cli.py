@@ -21,7 +21,9 @@ class TestParseArgs:
         assert args.years == 1
         assert args.lang == "fin@"
         assert args.limit == 10
-        assert args.sleep == 5.0
+        assert args.sleep == 1.0
+        assert args.sleep_max == 3.0
+        assert args.workers == 5
         assert args.pdf is False
         assert args.zip is False
         assert args.media is False
@@ -71,8 +73,14 @@ class TestParseArgs:
 
     def test_sleep(self):
         """Sleep setting."""
-        args = parse_args(["--sleep", "10"])
-        assert args.sleep == 10.0
+        args = parse_args(["--sleep", "2", "--sleep-max", "5"])
+        assert args.sleep == 2.0
+        assert args.sleep_max == 5.0
+
+    def test_workers(self):
+        """Workers setting."""
+        args = parse_args(["--workers", "10"])
+        assert args.workers == 10
 
 
 class TestGetYearsForType:

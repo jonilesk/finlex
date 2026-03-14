@@ -2,6 +2,8 @@
 
 import argparse
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
@@ -104,8 +106,21 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
     parser.add_argument(
         "--sleep",
         type=float,
-        default=5.0,
-        help="Seconds between requests (default: 5)",
+        default=1.0,
+        help="Minimum seconds between requests per worker (default: 1)",
+    )
+    parser.add_argument(
+        "--sleep-max",
+        type=float,
+        default=3.0,
+        help="Maximum seconds between requests per worker (default: 3). "
+             "Actual delay is random between --sleep and --sleep-max.",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=5,
+        help="Number of parallel download workers (default: 5)",
     )
     parser.add_argument(
         "--pdf",
@@ -187,6 +202,9 @@ def run_download(args: argparse.Namespace) -> int:
     state_manager = StateManager(state_file)
     manifest_manager = ManifestManager(manifest_file)
 
+    # Lock for thread-safe state/manifest updates
+    state_lock = threading.Lock()
+
     # Handle reset
     if args.reset:
         state_manager.reset()
@@ -196,8 +214,11 @@ def run_download(args: argparse.Namespace) -> int:
     if args.resume:
         state_manager.load()
 
-    # Initialize client
-    client = FinlexClient(sleep_seconds=args.sleep)
+    # Listing client (sequential, used only for pagination)
+    list_client = FinlexClient(
+        sleep_seconds=args.sleep,
+        sleep_max=args.sleep_max,
+    )
 
     # Download options
     download_opts = DownloadOptions(
@@ -210,9 +231,30 @@ def run_download(args: argparse.Namespace) -> int:
         in_force_only=args.in_force_only,
     )
 
+    workers = max(1, args.workers)
     logger.info(f"Output directory: {args.output}")
     logger.info(f"Document types: {args.types}")
     logger.info(f"Language: {args.lang}")
+    logger.info(f"Workers: {workers}, sleep: {args.sleep}-{args.sleep_max}s")
+
+    def _process_item(akn_uri: str) -> DownloadResult:
+        """Download a single document using a thread-local client."""
+        client = _get_thread_client(args)
+        return download_document(client, akn_uri, download_opts)
+
+    def _record_result(result: DownloadResult) -> None:
+        """Thread-safe recording of download result."""
+        manifest_entry = ManifestEntry(
+            akn_uri=result.akn_uri,
+            status=result.status,
+            timestamp=result.timestamp,
+            files=result.files,
+            error=result.error,
+        )
+        with state_lock:
+            manifest_manager.add(manifest_entry)
+            if result.status in ("success", "skipped", "skipped-repealed"):
+                state_manager.mark_completed(result.akn_uri)
 
     try:
         for category in args.types:
@@ -260,40 +302,55 @@ def run_download(args: argparse.Namespace) -> int:
 
                 state_manager.start_session(actual_category, doc_type)
 
-                # Process documents
+                # Collect URIs to download (skipping already completed)
+                uris_to_download = []
                 page = 0
-                for item in list_documents(client, list_config):
+                for item in list_documents(list_client, list_config):
                     page += 1
-                    
-                    # Skip if already completed
-                    if state_manager.is_completed(item.akn_uri):
-                        logger.debug(f"Already completed: {item.akn_uri}")
-                        continue
+                    with state_lock:
+                        if state_manager.is_completed(item.akn_uri):
+                            logger.debug(f"Already completed: {item.akn_uri}")
+                            continue
+                    uris_to_download.append(item.akn_uri)
 
-                    # Download document
-                    result = download_document(client, item.akn_uri, download_opts)
+                logger.info(f"  Found {len(uris_to_download)} documents to download")
 
-                    # Record in manifest
-                    manifest_entry = ManifestEntry(
-                        akn_uri=result.akn_uri,
-                        status=result.status,
-                        timestamp=result.timestamp,
-                        files=result.files,
-                        error=result.error,
-                    )
-                    manifest_manager.add(manifest_entry)
+                if not uris_to_download:
+                    continue
 
-                    # Update state
-                    if result.status in ("success", "skipped", "skipped-repealed"):
-                        state_manager.mark_completed(item.akn_uri)
+                # Download in parallel
+                with ThreadPoolExecutor(max_workers=workers) as executor:
+                    futures = {
+                        executor.submit(_process_item, uri): uri
+                        for uri in uris_to_download
+                    }
+                    completed = 0
+                    for future in as_completed(futures):
+                        uri = futures[future]
+                        try:
+                            result = future.result()
+                            _record_result(result)
+                            completed += 1
+                            if completed % 100 == 0:
+                                logger.info(f"  Progress: {completed}/{len(uris_to_download)}")
+                        except Exception as e:
+                            logger.error(f"Worker error for {uri}: {e}")
+                            _record_result(DownloadResult(
+                                akn_uri=uri,
+                                status="error",
+                                timestamp=datetime.now().isoformat(),
+                                error=str(e),
+                            ))
 
+                with state_lock:
                     state_manager.set_page(page)
 
     except KeyboardInterrupt:
         logger.info("Interrupted by user")
         return 130
     finally:
-        client.close()
+        list_client.close()
+        _cleanup_thread_clients()
 
     # Summary
     summary = manifest_manager.summary()
@@ -305,6 +362,34 @@ def run_download(args: argparse.Namespace) -> int:
     )
 
     return 0 if summary["error"] == 0 else 1
+
+
+# Thread-local storage for per-worker HTTP clients
+_thread_local = threading.local()
+_thread_clients: list[FinlexClient] = []
+_thread_clients_lock = threading.Lock()
+
+
+def _get_thread_client(args: argparse.Namespace) -> FinlexClient:
+    """Get or create a FinlexClient for the current thread."""
+    client = getattr(_thread_local, "client", None)
+    if client is None:
+        client = FinlexClient(
+            sleep_seconds=args.sleep,
+            sleep_max=args.sleep_max,
+        )
+        _thread_local.client = client
+        with _thread_clients_lock:
+            _thread_clients.append(client)
+    return client
+
+
+def _cleanup_thread_clients() -> None:
+    """Close all thread-local clients."""
+    with _thread_clients_lock:
+        for client in _thread_clients:
+            client.close()
+        _thread_clients.clear()
 
 
 def main(args: Optional[list[str]] = None) -> int:

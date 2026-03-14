@@ -83,7 +83,8 @@ usage: finlex-downloader [-h] [-o OUTPUT]
                          [--years-doc YEARS_DOC]
                          [--years-authority-regulation YEARS]
                          [--lang LANG] [--limit LIMIT] [--max-pages MAX_PAGES]
-                         [--sleep SLEEP] [--pdf] [--zip] [--media]
+                         [--sleep SLEEP] [--sleep-max SLEEP_MAX] [--workers N]
+                         [--pdf] [--zip] [--media]
                          [--type-statute TYPE] [--category-statute CATEGORY]
                          [--in-force-only]
                          [--force] [--dry-run] [--resume] [--reset] [-v]
@@ -100,7 +101,9 @@ Options:
   --lang                Language marker (default: fin@)
   --limit               Page size (default: 10, max: 10)
   --max-pages           Maximum pages per document type
-  --sleep               Seconds between requests (default: 5)
+  --sleep               Min seconds between requests per worker (default: 1)
+  --sleep-max           Max seconds between requests per worker (default: 3)
+  --workers             Number of parallel download workers (default: 5)
   --pdf                 Also download PDF versions
   --zip                 Also download ZIP packages
   --media               Also download media files
@@ -206,7 +209,8 @@ Tämä laki koskee kuluttajansuojalain (38/1978) 7 luvun ...
 
 The Finlex API may return HTTP 429 if you make too many requests. The downloader:
 
-- Waits 5 seconds between requests by default (`--sleep`)
+- Runs 5 parallel download workers by default (`--workers`)
+- Each worker waits 1–3 seconds (random) between requests (`--sleep`, `--sleep-max`)
 - Automatically retries with exponential backoff on 429/5xx errors
 - Saves state for resuming interrupted downloads
 

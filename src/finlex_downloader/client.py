@@ -1,5 +1,6 @@
 """HTTP client for Finlex Open Data API with retry logic."""
 
+import random
 import time
 from typing import Optional
 
@@ -16,7 +17,10 @@ class FinlexClient:
     Features:
     - Automatic User-Agent header
     - Retry with exponential backoff for 429, 5xx, timeouts
-    - Configurable sleep between requests
+    - Configurable random sleep between requests
+    
+    Each instance has its own requests.Session and is NOT thread-safe.
+    For parallel downloads, create one FinlexClient per thread.
     """
 
     BASE_URL = "https://opendata.finlex.fi/finlex/avoindata/v1"
@@ -24,7 +28,8 @@ class FinlexClient:
 
     def __init__(
         self,
-        sleep_seconds: float = 5.0,
+        sleep_seconds: float = 2.0,
+        sleep_max: Optional[float] = None,
         max_retries: int = 5,
         backoff_factor: float = 1.0,
         timeout: float = 30.0,
@@ -32,12 +37,15 @@ class FinlexClient:
         """Initialize the client.
         
         Args:
-            sleep_seconds: Seconds to wait between requests.
+            sleep_seconds: Minimum seconds to wait between requests.
+            sleep_max: Maximum seconds to wait (random uniform). If None, uses
+                       sleep_seconds as a fixed delay (no randomization).
             max_retries: Maximum retry attempts for failed requests.
             backoff_factor: Multiplier for exponential backoff.
             timeout: Request timeout in seconds.
         """
-        self.sleep_seconds = sleep_seconds
+        self.sleep_min = sleep_seconds
+        self.sleep_max = sleep_max
         self.timeout = timeout
         self._last_request_time: Optional[float] = None
 
@@ -63,11 +71,15 @@ class FinlexClient:
         })
 
     def _wait_if_needed(self) -> None:
-        """Wait to respect rate limits."""
+        """Wait to respect rate limits with optional random jitter."""
         if self._last_request_time is not None:
+            if self.sleep_max is not None:
+                target_sleep = random.uniform(self.sleep_min, self.sleep_max)
+            else:
+                target_sleep = self.sleep_min
             elapsed = time.time() - self._last_request_time
-            if elapsed < self.sleep_seconds:
-                sleep_time = self.sleep_seconds - elapsed
+            if elapsed < target_sleep:
+                sleep_time = target_sleep - elapsed
                 logger.debug(f"Sleeping {sleep_time:.2f}s before next request")
                 time.sleep(sleep_time)
 
