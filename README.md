@@ -22,6 +22,16 @@ finlex-downloader --types act --years 1 --pdf
 finlex-converter --input ./finlex-data --output ./finlex-md
 ```
 
+### Download only currently effective law
+
+Download all consolidated statutes in Finnish, keeping only those currently in force:
+
+```bash
+finlex-downloader --types act --lang fin@ --years 300 --in-force-only
+```
+
+This filters out repealed statutes by checking `<finlex:isInForce>` in each document's XML metadata. Only statutes with `value="true"` are saved to disk.
+
 ## Downloading
 
 ### Download multiple document types
@@ -71,6 +81,7 @@ usage: finlex-downloader [-h] [-o OUTPUT]
                          [--lang LANG] [--limit LIMIT] [--max-pages MAX_PAGES]
                          [--sleep SLEEP] [--pdf] [--zip] [--media]
                          [--type-statute TYPE] [--category-statute CATEGORY]
+                         [--in-force-only]
                          [--force] [--dry-run] [--resume] [--reset] [-v]
 
 Options:
@@ -90,6 +101,7 @@ Options:
   --media               Also download media files
   --type-statute        Filter by typeStatute API param (e.g., 'act')
   --category-statute    Filter by categoryStatute API param (e.g., 'new-statute')
+  --in-force-only       Skip statutes not currently in force (checks finlex:isInForce in XML)
   --force               Re-download existing files
   --dry-run             Show actions without downloading
   --resume              Resume from last checkpoint
