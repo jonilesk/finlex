@@ -1,6 +1,11 @@
-# Finlex Downloader
+# Finlex
 
-Download Akoma Ntoso documents from the Finnish Finlex Open Data API.
+Download Finnish law from the [Finlex Open Data API](https://www.finlex.fi/en/open-data) and convert to Markdown.
+
+Two CLI tools:
+
+1. **`finlex-downloader`** — Downloads Akoma Ntoso XML (and optionally PDF/ZIP/media) from the API
+2. **`finlex-converter`** — Converts downloaded XML to structured Markdown with a citation index
 
 ## Installation
 
@@ -8,15 +13,16 @@ Download Akoma Ntoso documents from the Finnish Finlex Open Data API.
 pip install -e ".[dev]"
 ```
 
-## Usage
+## Quick start
 
-### Basic usage
-
-Download Finnish statutes from the current year:
+Download current year's statutes (original + consolidated) with PDFs, then convert to Markdown:
 
 ```bash
 finlex-downloader --types act --years 1 --pdf
+finlex-converter --input ./finlex-data --output ./finlex-md
 ```
+
+## Downloading
 
 ### Download multiple document types
 
@@ -48,7 +54,7 @@ finlex-downloader --types act --years 1 --dry-run
 finlex-downloader --types act --years 1 --resume
 ```
 
-### All options
+### All downloader options
 
 ```bash
 finlex-downloader --help
@@ -64,6 +70,7 @@ usage: finlex-downloader [-h] [-o OUTPUT]
                          [--years-authority-regulation YEARS]
                          [--lang LANG] [--limit LIMIT] [--max-pages MAX_PAGES]
                          [--sleep SLEEP] [--pdf] [--zip] [--media]
+                         [--type-statute TYPE] [--category-statute CATEGORY]
                          [--force] [--dry-run] [--resume] [--reset] [-v]
 
 Options:
@@ -81,6 +88,8 @@ Options:
   --pdf                 Also download PDF versions
   --zip                 Also download ZIP packages
   --media               Also download media files
+  --type-statute        Filter by typeStatute API param (e.g., 'act')
+  --category-statute    Filter by categoryStatute API param (e.g., 'new-statute')
   --force               Re-download existing files
   --dry-run             Show actions without downloading
   --resume              Resume from last checkpoint
@@ -88,7 +97,42 @@ Options:
   -v, --verbose         Verbose output
 ```
 
+## Converting
+
+Convert downloaded XML to Markdown and build a citation index:
+
+```bash
+finlex-converter --input ./finlex-data --output ./finlex-md
+```
+
+Convert only a specific category:
+
+```bash
+finlex-converter --input ./finlex-data --output ./finlex-md --category act
+```
+
+The converter produces one Markdown file per statute and an `index.json` mapping Finnish citations (e.g., `731/1999`) to file paths and metadata.
+
+### All converter options
+
+```bash
+finlex-converter --help
+```
+
+```
+usage: finlex-converter [-h] [-i INPUT] [-o OUTPUT]
+                        [--category {act,judgment,doc}] [-v]
+
+Options:
+  -i, --input           Input directory with downloaded XML (default: ./finlex-data)
+  -o, --output          Output directory for Markdown (default: ./finlex-md)
+  --category            Only convert a specific category
+  -v, --verbose         Verbose output
+```
+
 ## Output structure
+
+### Downloaded files (finlex-data/)
 
 ```
 finlex-data/
@@ -110,6 +154,37 @@ finlex-data/
   .state.json
 ```
 
+### Converted Markdown (finlex-md/)
+
+```
+finlex-md/
+  act/
+    statute/
+      2024/123/fin@/
+        statute.md
+    statute-consolidated/
+      ...
+  index.json
+```
+
+Each `statute.md` contains structured Markdown with metadata, chapters, sections, and subsections. Example:
+
+```markdown
+# Laki eräiden kuluttajaluottojen välittäjistä
+
+**Citation:** 33/2026
+**Type:** statute-consolidated
+**Language:** fin
+**Date issued:** 2026-01-16
+**ELI:** http://data.finlex.fi/eli/sd/2026/33/ajantasa
+
+---
+
+## 1 § Soveltamisala
+
+Tämä laki koskee kuluttajansuojalain (38/1978) 7 luvun ...
+```
+
 ## Rate limiting
 
 The Finlex API may return HTTP 429 if you make too many requests. The downloader:
@@ -121,21 +196,21 @@ The Finlex API may return HTTP 429 if you make too many requests. The downloader
 ## Document types
 
 ### act
-- `statute` - Original statutes
-- `statute-consolidated` - Consolidated statutes
-- `statute-translated` - Translated statutes
-- `statute-aland` - Åland statutes
-- `statute-sami` - Sámi statutes
+- `statute` — Original statutes
+- `statute-consolidated` — Consolidated statutes (current law in force)
+- `statute-translated` — Translated statutes
+- `statute-aland` — Åland statutes
+- `statute-sami` — Sámi statutes
 
 ### judgment
-- `kko` - Supreme Court decisions
-- `kho` - Supreme Administrative Court decisions
+- `kko` — Supreme Court decisions
+- `kho` — Supreme Administrative Court decisions
 
 ### doc
-- `government-proposal` - Government proposals
-- `treaty` - Treaties
-- `treaty-consolidated` - Consolidated treaties
-- `authority-regulation` - Authority regulations
+- `government-proposal` — Government proposals
+- `treaty` — Treaties
+- `treaty-consolidated` — Consolidated treaties
+- `authority-regulation` — Authority regulations
 
 ## Development
 
@@ -145,10 +220,10 @@ The Finlex API may return HTTP 429 if you make too many requests. The downloader
 pytest
 ```
 
-### Run with coverage
+### Run a single test
 
 ```bash
-pytest --cov=finlex_downloader --cov-report=term-missing
+pytest tests/test_converter.py::TestParseStatute::test_minimal_act
 ```
 
 ## License
