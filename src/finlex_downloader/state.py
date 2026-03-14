@@ -239,5 +239,6 @@ class ManifestManager:
             "total": len(self.entries),
             "success": sum(1 for e in self.entries if e.status == "success"),
             "skipped": sum(1 for e in self.entries if e.status == "skipped"),
+            "skipped_repealed": sum(1 for e in self.entries if e.status == "skipped-repealed"),
             "error": sum(1 for e in self.entries if e.status == "error"),
         }

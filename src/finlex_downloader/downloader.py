@@ -34,10 +34,32 @@ class DownloadOptions:
     fetch_media: bool = False
     force: bool = False
     dry_run: bool = False
+    in_force_only: bool = False
 
 
 # Akoma Ntoso namespace
 AKN_NS = {"akn": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0"}
+FINLEX_NS = {"finlex": "http://data.finlex.fi/schema/finlex"}
+ALL_NS = {**AKN_NS, **FINLEX_NS}
+
+
+def check_in_force(xml_content: bytes) -> Optional[bool]:
+    """Check whether a statute is currently in force.
+
+    Args:
+        xml_content: Raw XML bytes of the AKN document.
+
+    Returns:
+        True if in force, False if not, None if element not found.
+    """
+    try:
+        tree = etree.fromstring(xml_content)
+        elem = tree.find(".//finlex:isInForce", ALL_NS)
+        if elem is not None:
+            return elem.get("value") == "true"
+    except Exception as e:
+        logger.warning(f"Failed to parse XML for isInForce check: {e}")
+    return None
 
 
 def download_document(
@@ -98,6 +120,15 @@ def download_document(
             return result
 
         xml_content = response.content
+
+        # Check in-force status before saving
+        if options.in_force_only:
+            in_force = check_in_force(xml_content)
+            if in_force is False:
+                result.status = "skipped-repealed"
+                logger.info(f"Skipping repealed statute: {akn_uri}")
+                return result
+
         xml_path.write_bytes(xml_content)
         result.files.append(str(xml_path))
         logger.info(f"Downloaded XML: {xml_path}")

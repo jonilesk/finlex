@@ -117,6 +117,16 @@ class TestGetYearsForType:
         assert args.type_statute is None
         assert args.category_statute is None
 
+    def test_in_force_only_flag(self):
+        """--in-force-only flag."""
+        args = parse_args(["--in-force-only"])
+        assert args.in_force_only is True
+
+    def test_in_force_only_default(self):
+        """--in-force-only defaults to False."""
+        args = parse_args([])
+        assert args.in_force_only is False
+
 
 class TestListConfigQueryParams:
     """Tests for query param threading to list endpoint."""

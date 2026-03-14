@@ -117,6 +117,11 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
         action="store_true",
         help="Also download media files",
     )
+    parser.add_argument(
+        "--in-force-only",
+        action="store_true",
+        help="Skip statutes that are not currently in force (checks finlex:isInForce in XML)",
+    )
 
     # Control
     parser.add_argument(
@@ -197,6 +202,7 @@ def run_download(args: argparse.Namespace) -> int:
         fetch_media=args.media,
         force=args.force,
         dry_run=args.dry_run,
+        in_force_only=args.in_force_only,
     )
 
     logger.info(f"Output directory: {args.output}")
@@ -266,7 +272,7 @@ def run_download(args: argparse.Namespace) -> int:
                     manifest_manager.add(manifest_entry)
 
                     # Update state
-                    if result.status in ("success", "skipped"):
+                    if result.status in ("success", "skipped", "skipped-repealed"):
                         state_manager.mark_completed(item.akn_uri)
 
                     state_manager.set_page(page)
@@ -279,7 +285,12 @@ def run_download(args: argparse.Namespace) -> int:
 
     # Summary
     summary = manifest_manager.summary()
-    logger.info(f"Download complete: {summary['success']} success, {summary['skipped']} skipped, {summary['error']} errors")
+    logger.info(
+        f"Download complete: {summary['success']} success, "
+        f"{summary['skipped']} skipped, "
+        f"{summary['skipped_repealed']} skipped (repealed), "
+        f"{summary['error']} errors"
+    )
 
     return 0 if summary["error"] == 0 else 1
 
