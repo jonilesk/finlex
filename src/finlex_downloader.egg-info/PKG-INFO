@@ -13,3 +13,256 @@ Provides-Extra: dev
 Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: pytest-cov>=4.0; extra == "dev"
 Requires-Dist: responses>=0.22.0; extra == "dev"
+
+# Finlex
+
+Download Finnish law from the [Finlex Open Data API](https://www.finlex.fi/en/open-data) and convert to Markdown.
+
+Two CLI tools:
+
+1. **`finlex-downloader`** — Downloads Akoma Ntoso XML (and optionally PDF/ZIP/media) from the API
+2. **`finlex-converter`** — Converts downloaded XML to structured Markdown with a citation index
+
+## Installation
+
+```bash
+pip install -e ".[dev]"
+```
+
+## Quick start
+
+Download current year's statutes (original + consolidated) with PDFs, then convert to Markdown:
+
+```bash
+finlex-downloader --types act --years 1 --pdf
+finlex-converter --input ./finlex-data --output ./finlex-md
+```
+
+### Download only currently effective law
+
+Download only consolidated statutes in Finnish, keeping only those currently in force:
+
+```bash
+finlex-downloader --types act --subtypes statute-consolidated \
+  --lang fin@ --years 300 --in-force-only
+```
+
+Use `--subtypes` to restrict which document subtypes are downloaded within a category. Omit it to download all subtypes.
+
+This filters out repealed statutes by checking `<finlex:isInForce>` in each document's XML metadata. Only statutes with `value="true"` are saved to disk.
+
+## Downloading
+
+### Download multiple document types
+
+```bash
+finlex-downloader --types act judgment doc --years 2
+```
+
+### Per-type year settings
+
+Download 5 years of acts but only 2 years of judgments:
+
+```bash
+finlex-downloader --types act judgment \
+  --years-act 5 \
+  --years-judgment 2
+```
+
+### Dry run
+
+See what would be downloaded without actually downloading:
+
+```bash
+finlex-downloader --types act --years 1 --dry-run
+```
+
+### Resume interrupted download
+
+```bash
+finlex-downloader --types act --years 1 --resume
+```
+
+### All downloader options
+
+```bash
+finlex-downloader --help
+```
+
+```
+usage: finlex-downloader [-h] [-o OUTPUT] 
+                         [--types {act,judgment,doc,authority-regulation} ...]
+                         [--subtypes SUBTYPES ...]
+                         [--years YEARS] 
+                         [--years-act YEARS_ACT]
+                         [--years-judgment YEARS_JUDGMENT]
+                         [--years-doc YEARS_DOC]
+                         [--years-authority-regulation YEARS]
+                         [--lang LANG] [--limit LIMIT] [--max-pages MAX_PAGES]
+                         [--sleep SLEEP] [--sleep-max SLEEP_MAX] [--workers N]
+                         [--pdf] [--zip] [--media]
+                         [--type-statute TYPE] [--category-statute CATEGORY]
+                         [--in-force-only]
+                         [--force] [--dry-run] [--resume] [--reset] [-v]
+
+Options:
+  -o, --output          Output directory (default: ./finlex-data)
+  --types               Document categories: act, judgment, doc, authority-regulation
+  --subtypes            Restrict to specific subtypes (e.g., statute-consolidated)
+  --years               Number of years to download (default: 1)
+  --years-act           Override years for act category
+  --years-judgment      Override years for judgment category
+  --years-doc           Override years for doc category
+  --years-authority-regulation  Override years for authority-regulation
+  --lang                Language marker (default: fin@)
+  --limit               Page size (default: 10, max: 10)
+  --max-pages           Maximum pages per document type
+  --sleep               Min seconds between requests per worker (default: 1)
+  --sleep-max           Max seconds between requests per worker (default: 3)
+  --workers             Number of parallel download workers (default: 5)
+  --pdf                 Also download PDF versions
+  --zip                 Also download ZIP packages
+  --media               Also download media files
+  --type-statute        Filter by typeStatute API param (e.g., 'act')
+  --category-statute    Filter by categoryStatute API param (e.g., 'new-statute')
+  --in-force-only       Skip statutes not currently in force (checks finlex:isInForce in XML)
+  --force               Re-download existing files
+  --dry-run             Show actions without downloading
+  --resume              Resume from last checkpoint
+  --reset               Reset state and start fresh
+  -v, --verbose         Verbose output
+```
+
+## Converting
+
+Convert downloaded XML to Markdown and build a citation index:
+
+```bash
+finlex-converter --input ./finlex-data --output ./finlex-md
+```
+
+Convert only a specific category:
+
+```bash
+finlex-converter --input ./finlex-data --output ./finlex-md --category act
+```
+
+The converter produces one Markdown file per statute and an `index.json` mapping Finnish citations (e.g., `731/1999`) to file paths and metadata.
+
+### All converter options
+
+```bash
+finlex-converter --help
+```
+
+```
+usage: finlex-converter [-h] [-i INPUT] [-o OUTPUT]
+                        [--category {act,judgment,doc}] [-v]
+
+Options:
+  -i, --input           Input directory with downloaded XML (default: ./finlex-data)
+  -o, --output          Output directory for Markdown (default: ./finlex-md)
+  --category            Only convert a specific category
+  -v, --verbose         Verbose output
+```
+
+## Output structure
+
+### Downloaded files (finlex-data/)
+
+```
+finlex-data/
+  act/
+    statute/
+      2024/123/fin@/
+        main.xml
+        main.pdf
+        media/
+    statute-consolidated/
+      ...
+  judgment/
+    kko/
+      ...
+  doc/
+    government-proposal/
+      ...
+  manifest.json
+  .state.json
+```
+
+### Converted Markdown (finlex-md/)
+
+```
+finlex-md/
+  act/
+    statute/
+      2024/123/fin@/
+        statute.md
+    statute-consolidated/
+      ...
+  index.json
+```
+
+Each `statute.md` contains structured Markdown with metadata, chapters, sections, and subsections. Example:
+
+```markdown
+# Laki eräiden kuluttajaluottojen välittäjistä
+
+**Citation:** 33/2026
+**Type:** statute-consolidated
+**Language:** fin
+**Date issued:** 2026-01-16
+**ELI:** http://data.finlex.fi/eli/sd/2026/33/ajantasa
+
+---
+
+## 1 § Soveltamisala
+
+Tämä laki koskee kuluttajansuojalain (38/1978) 7 luvun ...
+```
+
+## Rate limiting
+
+The Finlex API may return HTTP 429 if you make too many requests. The downloader:
+
+- Runs 5 parallel download workers by default (`--workers`)
+- Each worker waits 1–3 seconds (random) between requests (`--sleep`, `--sleep-max`)
+- Automatically retries with exponential backoff on 429/5xx errors
+- Saves state for resuming interrupted downloads
+
+## Document types
+
+### act
+- `statute` — Original statutes
+- `statute-consolidated` — Consolidated statutes (current law in force)
+- `statute-translated` — Translated statutes
+- `statute-aland` — Åland statutes
+- `statute-sami` — Sámi statutes
+
+### judgment
+- `kko` — Supreme Court decisions
+- `kho` — Supreme Administrative Court decisions
+
+### doc
+- `government-proposal` — Government proposals
+- `treaty` — Treaties
+- `treaty-consolidated` — Consolidated treaties
+- `authority-regulation` — Authority regulations
+
+## Development
+
+### Run tests
+
+```bash
+pytest
+```
+
+### Run a single test
+
+```bash
+pytest tests/test_converter.py::TestParseStatute::test_minimal_act
+```
+
+## License
+
+MIT

@@ -28,10 +28,11 @@ dev = [
 [project.scripts]
 finlex-downloader = "finlex_downloader.cli:main"
 finlex-converter = "finlex_converter.cli:main"
+finlex-skills = "finlex_converter.skills_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-v --cov=finlex_downloader --cov-report=term-missing"
+addopts = "-v --cov=finlex_downloader --cov=finlex_converter --cov-report=term-missing"

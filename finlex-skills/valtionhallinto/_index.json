@@ -1,0 +1,86 @@
+{
+  "10/1988": {
+    "citation": "10/1988",
+    "title": "Laki tasavallan presidentin eläkeoikeudesta",
+    "path": "valtionhallinto/10-1988.md",
+    "type": "act",
+    "ministry": "Valtioneuvoston kanslia",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/1988/10/ajantasa",
+    "date_issued": "",
+    "xml_size": 3980
+  },
+  "657/1994": {
+    "citation": "657/1994",
+    "title": "Laki valtiopäiväjärjestyksen 61 §:n kumoamisesta",
+    "path": "valtionhallinto/657-1994.md",
+    "type": "act",
+    "ministry": "Valtioneuvoston kanslia",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/1994/657/ajantasa",
+    "date_issued": "1994-07-15",
+    "xml_size": 3736
+  },
+  "971/2007": {
+    "citation": "971/2007",
+    "title": "Laki eräiden tehtävien siirtämisestä työ- ja elinkeinoministeriöön",
+    "path": "valtionhallinto/971-2007.md",
+    "type": "act",
+    "ministry": "Valtioneuvoston kanslia",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/2007/971/ajantasa",
+    "date_issued": "2007-11-09",
+    "xml_size": 3899
+  },
+  "987/2014": {
+    "citation": "987/2014",
+    "title": "Laki turvatoimista valtioneuvostossa",
+    "path": "valtionhallinto/987-2014.md",
+    "type": "act",
+    "ministry": "Valtioneuvoston kanslia",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/2014/987/ajantasa",
+    "date_issued": "2014-11-28",
+    "xml_size": 27371
+  },
+  "300/2017": {
+    "citation": "300/2017",
+    "title": "Laki valtioneuvoston tilannekeskuksesta",
+    "path": "valtionhallinto/300-2017.md",
+    "type": "act",
+    "ministry": "Valtioneuvoston kanslia",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/2017/300/ajantasa",
+    "date_issued": "2017-05-24",
+    "xml_size": 14294
+  },
+  "417/2017": {
+    "citation": "417/2017",
+    "title": "Laki Euroopan hybridiuhkien torjunnan osaamiskeskuksesta",
+    "path": "valtionhallinto/417-2017.md",
+    "type": "act",
+    "ministry": "Valtioneuvoston kanslia",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/2017/417/ajantasa",
+    "date_issued": "2017-06-28",
+    "xml_size": 25301
+  },
+  "1421/2025": {
+    "citation": "1421/2025",
+    "title": "Laki eduskunnan turvatoimista",
+    "path": "valtionhallinto/1421-2025.md",
+    "type": "act",
+    "ministry": "Eduskunta",
+    "skill": "valtionhallinto",
+    "subtopic": "",
+    "eli": "http://data.finlex.fi/eli/sd/2025/1421/ajantasa",
+    "date_issued": "2025-12-30",
+    "xml_size": 41611
+  }
+}

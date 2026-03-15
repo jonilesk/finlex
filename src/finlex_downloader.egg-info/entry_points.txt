@@ -1,2 +1,4 @@
 [console_scripts]
+finlex-converter = finlex_converter.cli:main
 finlex-downloader = finlex_downloader.cli:main
+finlex-skills = finlex_converter.skills_cli:main
